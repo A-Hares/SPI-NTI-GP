@@ -1,12 +1,15 @@
 `default_nettype none
 `include "../BRG/BRG.v"
-`include "../Master_controller/Master_controller.v"
+//`include "../Master_controller/Master_controller.v"
+`include "../Master_Slave_controller\Master_Slave_controller.v"
+`include "../Master_Slave_controller\Master_slave_select.v"
 `include "../Port_control_logic\Port_control_logic.v"
 `include "../Registers\SPCR.v"
 `include "../Registers\SPDR.v"
 `include "../Registers\SPIBR.v"
 `include "../Registers\SPISR.v"
-`include "../SCK_control\SCK_control.v"
+`include "../SCK_control\SCK_control_master.v"
+`include "../SCK_control\SCK_control_slave.v"
 `include "../Shifter\Shifter.v"
 `include "../Bit_counter\Bit_counter.v"
 module SPI_TOP #(
@@ -81,17 +84,64 @@ Shifter u_Shifter(
 //______________________________________________________________________________
 
 wire [2:0] counter;
-wire counter_enable_master;
-wire counter_enable_slave;
+wire counter_enable;
 
 Bit_counter u_Bit_counter(
-    .BaudRate(BaudRate),
+    .BaudRate(control_BaudRate),
     .rst(rst),
     .counter(counter),
-    .counter_enable_master(counter_enable_master),
-    .counter_enable_slave(counter_enable_slave)
+    .counter_enable(counter_enable)
 );
 
+wire S_BaudRate;
+wire S_Shift_clk;
+wire S_Sample_clk;
+wire control_BaudRate;
+
+SCK_control_slave u_SCK_control_slave(
+    .SCK_in(SCK_in),
+    .CPOL(CPOL),
+    .CPHA(CPHA),
+    .idle(idle), 
+    .S_BaudRate(S_BaudRate),
+    .Shift_clk(S_Shift_clk),
+    .Sample_clk(S_Sample_clk)
+);
+
+Master_slave_select u_Master_slave_select(
+    .MSTR(MSTR),
+    .S_BaudRate(S_BaudRate),
+    .BaudRate(BaudRate),
+    .M_Shift_clk(M_Shift_clk),
+    .M_Sample_clk(M_Sample_clk),
+    .S_Shift_clk(S_Shift_clk),
+    .S_Sample_clk(S_Sample_clk),
+    .idle(idle),
+    .M_BaudRate(M_BaudRate),
+    .control_BaudRate(control_BaudRate),
+    .Shift_clk(Shift_clk),
+    .Sample_clk(Sample_clk)
+);
+
+Master_Slave_controller u_Master_Slave_controller(
+    .clk          (clk),
+    .control_BaudRate     (control_BaudRate     ),           // From baud rate generator
+    .rst          (rst          ),
+    .SS           (SS           ),
+    .SPE          (SPE          ),
+    .MSTR         (MSTR         ),
+    .counter(counter),
+    .counter_enable(counter_enable),
+    .Reg_write_en (Reg_write_en ),
+    .Shifter_en   (shifter_en   ),
+    .idle         (idle         ),
+    .SPIF         (SPISR_in     ),
+    .BRG_clr      (BRG_clr      ),
+    .SPDR_wr_en   (SPDR_wr_en   ),
+    .SPDR_rd_en   (SPDR_rd_en   )
+);
+
+/*
 Master_controller u_Master_controller(
     .clk          (clk),
     .BaudRate     (BaudRate     ),
@@ -110,7 +160,7 @@ Master_controller u_Master_controller(
     .counter(counter),
     .counter_enable(counter_enable_master)
 );
-
+*/
 
 //______________________________________________________________________________
 
@@ -130,14 +180,17 @@ Port_control_logic u_Port_control_logic(
 
 //______________________________________________________________________________
 
-SCK_control u_SCK_control(
+wire M_Shift_clk;
+wire M_Sample_clk;
+
+SCK_control_master u_SCK_control_master(
     .M_BaudRate (M_BaudRate ),
     .CPOL       (CPOL       ),
     .CPHA       (CPHA       ),
     .idle       (idle       ),
     .SCK_out    (SCK_out    ),
-    .Shift_clk  (Shift_clk  ),
-    .Sample_clk (Sample_clk )
+    .Shift_clk  (M_Shift_clk),
+    .Sample_clk (M_Sample_clk)
 );
 
 //______________________________________________________________________________

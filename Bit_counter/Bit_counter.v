@@ -2,12 +2,9 @@
 module Bit_counter(
     input wire BaudRate,
     input wire rst,
-    input wire counter_enable_master,
-    input wire counter_enable_slave,
+    input wire counter_enable,
     output reg [2:0] counter
 );
-    wire counter_enable;
-    assign counter_enable = counter_enable_master | counter_enable_slave;
     
     always@(posedge BaudRate or negedge rst)
         begin

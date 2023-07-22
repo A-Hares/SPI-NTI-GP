@@ -1,5 +1,5 @@
 $date
-	Sat Jul 22 21:04:58 2023
+	Sat Jul 22 22:09:41 2023
 $end
 $version
 	Icarus Verilog
@@ -30,214 +30,243 @@ $var wire 8 1 SPDR_From_user [7:0] $end
 $var wire 8 2 SPIBR_in [7:0] $end
 $var wire 1 , SS_master $end
 $var wire 1 - clk $end
-$var wire 1 3 counter_enable_slave $end
 $var wire 1 . rst $end
-$var wire 1 4 shifter_en $end
-$var wire 1 5 idle $end
-$var wire 1 6 counter_enable_master $end
-$var wire 3 7 counter [2:0] $end
+$var wire 1 3 shifter_en $end
+$var wire 1 4 idle $end
+$var wire 1 5 counter_enable $end
+$var wire 3 6 counter [2:0] $end
+$var wire 1 7 control_BaudRate $end
 $var wire 1 8 Shift_clk $end
 $var wire 1 9 Sample_clk $end
+$var wire 1 : S_Shift_clk $end
+$var wire 1 ; S_Sample_clk $end
+$var wire 1 < S_BaudRate $end
 $var wire 1 " SS_slave $end
 $var wire 1 # SS $end
-$var wire 3 : SPR [2:0] $end
-$var wire 1 ; SPISR_in $end
+$var wire 3 = SPR [2:0] $end
+$var wire 1 > SPISR_in $end
 $var wire 1 $ SPIF $end
-$var wire 1 < SPE $end
-$var wire 1 = SPDR_wr_en $end
-$var wire 1 > SPDR_rd_en $end
-$var wire 8 ? SPDR_out [7:0] $end
-$var wire 8 @ SPDR_in [7:0] $end
-$var wire 1 A SCK_out $end
+$var wire 1 ? SPE $end
+$var wire 1 @ SPDR_wr_en $end
+$var wire 1 A SPDR_rd_en $end
+$var wire 8 B SPDR_out [7:0] $end
+$var wire 8 C SPDR_in [7:0] $end
+$var wire 1 D SCK_out $end
 $var wire 1 % SCK_in $end
 $var wire 1 & SCK $end
-$var wire 1 B Reg_write_en $end
-$var wire 1 C M_BaudRate $end
-$var wire 1 D MSTR $end
+$var wire 1 E Reg_write_en $end
+$var wire 1 F M_Shift_clk $end
+$var wire 1 G M_Sample_clk $end
+$var wire 1 H M_BaudRate $end
+$var wire 1 I MSTR $end
 $var wire 1 ' MOSI $end
-$var wire 1 E Data_out $end
-$var wire 1 F Data_in $end
-$var wire 1 G CPOL $end
-$var wire 1 H CPHA $end
-$var wire 1 I BaudRate $end
-$var wire 1 J BRG_clr $end
-$var parameter 32 K PrescalarWidth $end
+$var wire 1 J Data_out $end
+$var wire 1 K Data_in $end
+$var wire 1 L CPOL $end
+$var wire 1 M CPHA $end
+$var wire 1 N BaudRate $end
+$var wire 1 O BRG_clr $end
+$var parameter 32 P PrescalarWidth $end
 $scope module u_BRG $end
 $var wire 1 - clk $end
 $var wire 1 . rst $end
-$var wire 8 L counterNext [7:0] $end
-$var wire 1 J clr $end
-$var wire 3 M SPR [2:0] $end
-$var wire 1 I BaudRate $end
-$var parameter 32 N PrescalarWidth $end
-$var reg 8 O counter [7:0] $end
+$var wire 8 Q counterNext [7:0] $end
+$var wire 1 O clr $end
+$var wire 3 R SPR [2:0] $end
+$var wire 1 N BaudRate $end
+$var parameter 32 S PrescalarWidth $end
+$var reg 8 T counter [7:0] $end
 $upscope $end
 $scope module u_Bit_counter $end
-$var wire 1 I BaudRate $end
-$var wire 1 P counter_enable $end
-$var wire 1 3 counter_enable_slave $end
 $var wire 1 . rst $end
-$var wire 1 6 counter_enable_master $end
-$var reg 3 Q counter [2:0] $end
+$var wire 1 5 counter_enable $end
+$var wire 1 7 BaudRate $end
+$var reg 3 U counter [2:0] $end
 $upscope $end
-$scope module u_Master_controller $end
-$var wire 1 J BRG_clr $end
-$var wire 1 I BaudRate $end
-$var wire 1 C M_BaudRate $end
+$scope module u_Master_Slave_controller $end
+$var wire 1 O BRG_clr $end
 $var wire 1 - clk $end
-$var wire 3 R counter [2:0] $end
+$var wire 3 V counter [2:0] $end
 $var wire 1 . rst $end
+$var wire 1 7 control_BaudRate $end
 $var wire 1 # SS $end
-$var wire 1 < SPE $end
-$var wire 1 D MSTR $end
-$var parameter 32 S Idle $end
-$var parameter 32 T Run $end
-$var parameter 32 U Update $end
-$var reg 1 B Reg_write_en $end
-$var reg 1 > SPDR_rd_en $end
-$var reg 1 = SPDR_wr_en $end
-$var reg 1 ; SPIF $end
-$var reg 1 4 Shifter_en $end
-$var reg 1 6 counter_enable $end
-$var reg 2 V current_state [1:0] $end
-$var reg 1 5 idle $end
-$var reg 2 W next_state [1:0] $end
-$var reg 1 X temp $end
+$var wire 1 ? SPE $end
+$var wire 1 I MSTR $end
+$var parameter 32 W Idle $end
+$var parameter 32 X Run $end
+$var parameter 32 Y Update $end
+$var reg 1 E Reg_write_en $end
+$var reg 1 A SPDR_rd_en $end
+$var reg 1 @ SPDR_wr_en $end
+$var reg 1 > SPIF $end
+$var reg 1 3 Shifter_en $end
+$var reg 1 5 counter_enable $end
+$var reg 2 Z current_state [1:0] $end
+$var reg 1 4 idle $end
+$var reg 2 [ next_state [1:0] $end
+$var reg 1 \ temp $end
+$upscope $end
+$scope module u_Master_slave_select $end
+$var wire 1 N BaudRate $end
+$var wire 1 4 idle $end
+$var wire 1 : S_Shift_clk $end
+$var wire 1 ; S_Sample_clk $end
+$var wire 1 < S_BaudRate $end
+$var wire 1 F M_Shift_clk $end
+$var wire 1 G M_Sample_clk $end
+$var wire 1 I MSTR $end
+$var reg 1 H M_BaudRate $end
+$var reg 1 9 Sample_clk $end
+$var reg 1 8 Shift_clk $end
+$var reg 1 7 control_BaudRate $end
 $upscope $end
 $scope module u_Port_control_logic $end
 $var wire 1 ! MISO $end
 $var wire 1 , SS_master $end
 $var wire 1 " SS_slave $end
 $var wire 1 # SS $end
-$var wire 1 A SCK_out $end
+$var wire 1 D SCK_out $end
 $var wire 1 % SCK_in $end
 $var wire 1 & SCK $end
-$var wire 1 D MSTR $end
+$var wire 1 I MSTR $end
 $var wire 1 ' MOSI $end
-$var wire 1 E Data_out $end
-$var wire 1 F Data_in $end
+$var wire 1 J Data_out $end
+$var wire 1 K Data_in $end
 $upscope $end
-$scope module u_SCK_control $end
-$var wire 1 C M_BaudRate $end
-$var wire 1 5 idle $end
-$var wire 1 G CPOL $end
-$var wire 1 H CPHA $end
-$var reg 1 A SCK_out $end
-$var reg 1 9 Sample_clk $end
-$var reg 1 8 Shift_clk $end
+$scope module u_SCK_control_master $end
+$var wire 1 H M_BaudRate $end
+$var wire 1 4 idle $end
+$var wire 1 L CPOL $end
+$var wire 1 M CPHA $end
+$var reg 1 D SCK_out $end
+$var reg 1 G Sample_clk $end
+$var reg 1 F Shift_clk $end
+$upscope $end
+$scope module u_SCK_control_slave $end
+$var wire 1 % SCK_in $end
+$var wire 1 4 idle $end
+$var wire 1 L CPOL $end
+$var wire 1 M CPHA $end
+$var reg 1 < S_BaudRate $end
+$var reg 1 ; Sample_clk $end
+$var reg 1 : Shift_clk $end
 $upscope $end
 $scope module u_SPCR $end
-$var wire 8 Y SPCR_in [7:0] $end
+$var wire 8 ] SPCR_in [7:0] $end
 $var wire 1 - clk $end
 $var wire 1 . rst $end
-$var reg 1 H CPHA $end
-$var reg 1 G CPOL $end
-$var reg 1 Z LSBFE $end
-$var reg 1 D MSTR $end
-$var reg 1 < SPE $end
+$var reg 1 M CPHA $end
+$var reg 1 L CPOL $end
+$var reg 1 ^ LSBFE $end
+$var reg 1 I MSTR $end
+$var reg 1 ? SPE $end
 $upscope $end
 $scope module u_SPDR $end
-$var wire 8 [ SPDR_From_user [7:0] $end
-$var wire 8 \ SPDR_out [7:0] $end
-$var wire 1 > SPDR_rd_en $end
+$var wire 8 _ SPDR_From_user [7:0] $end
+$var wire 8 ` SPDR_out [7:0] $end
+$var wire 1 A SPDR_rd_en $end
 $var wire 1 - clk $end
-$var wire 1 = en $end
+$var wire 1 @ en $end
 $var wire 1 . rst $end
-$var wire 8 ] SPDR_in [7:0] $end
-$var reg 8 ^ SPDR [7:0] $end
+$var wire 8 a SPDR_in [7:0] $end
+$var reg 8 b SPDR [7:0] $end
 $upscope $end
 $scope module u_SPIBR $end
-$var wire 8 _ SPIBR_in [7:0] $end
+$var wire 8 c SPIBR_in [7:0] $end
 $var wire 1 - clk $end
 $var wire 1 . rst $end
-$var wire 3 ` SPR [2:0] $end
-$var reg 1 a SPR0 $end
-$var reg 1 b SPR1 $end
-$var reg 1 c SPR2 $end
+$var wire 3 d SPR [2:0] $end
+$var reg 1 e SPR0 $end
+$var reg 1 f SPR1 $end
+$var reg 1 g SPR2 $end
 $upscope $end
 $scope module u_SPISR $end
-$var wire 1 ; SPISR_in $end
+$var wire 1 > SPISR_in $end
 $var wire 1 - clk $end
-$var wire 1 B en $end
+$var wire 1 E en $end
 $var wire 1 . rst $end
 $var reg 1 $ SPIF $end
 $upscope $end
 $scope module u_Shifter $end
-$var wire 1 F Data_in $end
-$var wire 8 d SPDR_in [7:0] $end
-$var wire 1 > SPDR_rd_en $end
-$var wire 1 = SPDR_wr_en $end
+$var wire 1 K Data_in $end
+$var wire 8 h SPDR_in [7:0] $end
+$var wire 1 A SPDR_rd_en $end
+$var wire 1 @ SPDR_wr_en $end
 $var wire 1 9 Sample_clk $end
 $var wire 1 8 Shift_clk $end
-$var wire 1 4 shifter_en $end
-$var parameter 32 e DWIDTH $end
-$var reg 1 E Data_out $end
-$var reg 8 f SPDR_out [7:0] $end
-$var reg 8 g shifter_data [7:0] $end
-$var reg 8 h shifter_data_reg [7:0] $end
+$var wire 1 3 shifter_en $end
+$var parameter 32 i DWIDTH $end
+$var reg 1 J Data_out $end
+$var reg 8 j SPDR_out [7:0] $end
+$var reg 8 k shifter_data [7:0] $end
+$var reg 8 l shifter_data_reg [7:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b1000 e
-b10 U
-b1 T
-b0 S
-b11 N
-b11 K
+b1000 i
+b10 Y
+b1 X
+b0 W
+b11 S
+b11 P
 $end
 #0
 $dumpvars
+b0 l
+b0 k
+bz j
 b0 h
-b0 g
-bz f
-b0 d
-0c
-1b
-0a
-b10 `
+0g
+1f
+0e
+b10 d
+bx c
+b0 b
+bz a
+b0 `
 bx _
-b0 ^
-bz ]
-b0 \
-bx [
-0Z
-bx Y
-xX
-b0 W
+0^
+bx ]
+x\
+b0 [
+b0 Z
 b0 V
-b0 R
-b0 Q
-xP
-b0 O
-b10 M
-b1 L
-1J
+b0 U
+b0 T
+b10 R
+b1 Q
+1O
+0N
+0M
+0L
+zK
+xJ
 0I
 0H
 0G
-zF
-xE
+0F
+1E
 0D
-0C
-0B
-0A
-b0 @
-bz ?
-1>
-0=
-0<
-0;
-b10 :
-09
+b0 C
+bz B
+1A
+0@
+0?
+0>
+b10 =
+z<
+x;
+0:
+x9
 08
-b0 7
-06
-15
-04
-z3
+z7
+b0 6
+05
+14
+03
 bx 2
 bx 1
 bx 0
@@ -259,1497 +288,1651 @@ x!
 $end
 #50
 0!
-bx g
-bx h
+bx k
+bx l
 0&
 0#
-0F
+0K
 x'
-bx @
-bx \
-bx d
-bx ^
-xc
-xb
-xI
-bx :
-bx M
+09
+07
+bx C
 bx `
-xa
-xZ
-1D
-0X
+bx h
+bx b
+xg
+xf
+xN
+bx =
+bx R
+bx d
+xe
+x^
+1I
+0\
 0,
 bx0x100xx )
 bx0x100xx 0
-bx0x100xx Y
+bx0x100xx ]
 1.
 1-
 #100
 0-
 #150
-0J
-b1 W
-b10101010 g
+0O
+b1 [
+b10101010 k
+b10101010 l
+1?
+0N
+0g
+1f
+b10 =
+b10 R
+b10 d
+0e
+b10101010 C
+b10101010 `
 b10101010 h
-1<
-0I
-0c
-1b
-b10 :
-b10 M
-b10 `
-0a
-b10101010 @
-b10101010 \
-b10101010 d
-b10101010 ^
-1X
+b10101010 b
+1\
 1-
 bx1x100xx )
 bx1x100xx 0
-bx1x100xx Y
+bx1x100xx ]
 b10 +
 b10 2
-b10 _
+b10 c
 b10101010 *
 b10101010 1
-b10101010 [
+b10101010 _
 #200
 0-
 #250
-b1010100 g
+b1010100 k
 1'
-b1010100 h
-1E
-1&
-1A
-19
-1C
-1P
-08
-16
-14
-1B
-0>
-05
+b1010100 l
+1J
+b1 6
+b1 U
 b1 V
-0X
-b10 L
-b1 O
+1&
+19
+1D
+1G
+08
+17
+1H
+0F
+z;
+x:
+15
+13
+0E
+0A
+04
+b1 Z
+0\
+b10 Q
+b1 T
 1-
 #300
 0-
 #350
-b11 L
-b10 O
+b11 Q
+b10 T
 1-
 #400
 0-
 #450
-b100 L
-b11 O
+b100 Q
+b11 T
 1-
 #500
 0-
 #550
 0'
-0E
-b1 7
-b1 Q
-b1 R
+0J
 0&
-0A
 09
 18
-0C
-b101 L
-1I
-b100 O
+0D
+0G
+1F
+07
+0H
+b101 Q
+1N
+b100 T
 1-
 #600
 0-
 #650
-b110 L
-b101 O
+b110 Q
+b101 T
 1-
 #700
 0-
 #750
-b111 L
-b110 O
+b111 Q
+b110 T
 1-
 #800
 0-
 #850
-b1000 L
-b111 O
+b1000 Q
+b111 T
 1-
 #900
 0-
 #950
-b10101000 g
-b10101000 h
+b10101000 k
+b10101000 l
+b10 6
+b10 U
+b10 V
 1&
-1A
 19
 08
-1C
-b1001 L
-0I
-b1000 O
+1D
+1G
+0F
+17
+1H
+b1001 Q
+0N
+b1000 T
 1-
 #1000
 0-
 #1050
-b1010 L
-b1001 O
+b1010 Q
+b1001 T
 1-
 #1100
 0-
 #1150
-b1011 L
-b1010 O
+b1011 Q
+b1010 T
 1-
 #1200
 0-
 #1250
-b1100 L
-b1011 O
+b1100 Q
+b1011 T
 1-
 #1300
 0-
 #1350
 1'
-1E
-b10 7
-b10 Q
-b10 R
+1J
 0&
-0A
 09
 18
-0C
-b1101 L
-1I
-b1100 O
+0D
+0G
+1F
+07
+0H
+b1101 Q
+1N
+b1100 T
 1-
 #1400
 0-
 #1450
-b1110 L
-b1101 O
+b1110 Q
+b1101 T
 1-
 #1500
 0-
 #1550
-b1111 L
-b1110 O
+b1111 Q
+b1110 T
 1-
 #1600
 0-
 #1650
-b10000 L
-b1111 O
+b10000 Q
+b1111 T
 1-
 #1700
 0-
 #1750
-b1010000 g
-b1010000 h
+b1010000 k
+b1010000 l
+b11 6
+b11 U
+b11 V
 1&
-1A
 19
 08
-1C
-b10001 L
-0I
-b10000 O
+1D
+1G
+0F
+17
+1H
+b10001 Q
+0N
+b10000 T
 1-
 #1800
 0-
 #1850
-b10010 L
-b10001 O
+b10010 Q
+b10001 T
 1-
 #1900
 0-
 #1950
-b10011 L
-b10010 O
+b10011 Q
+b10010 T
 1-
 #2000
 0-
 #2050
-b10100 L
-b10011 O
+b10100 Q
+b10011 T
 1-
 #2100
 0-
 #2150
 0'
-0E
-b11 7
-b11 Q
-b11 R
+0J
 0&
-0A
 09
 18
-0C
-b10101 L
-1I
-b10100 O
+0D
+0G
+1F
+07
+0H
+b10101 Q
+1N
+b10100 T
 1-
 #2200
 0-
 #2250
-b10110 L
-b10101 O
+b10110 Q
+b10101 T
 1-
 #2300
 0-
 #2350
-b10111 L
-b10110 O
+b10111 Q
+b10110 T
 1-
 #2400
 0-
 #2450
-b11000 L
-b10111 O
+b11000 Q
+b10111 T
 1-
 #2500
 0-
 #2550
-b10100000 g
-b10100000 h
+b10100000 k
+b10100000 l
+b100 6
+b100 U
+b100 V
 1&
-1A
 19
 08
-1C
-b11001 L
-0I
-b11000 O
+1D
+1G
+0F
+17
+1H
+b11001 Q
+0N
+b11000 T
 1-
 #2600
 0-
 #2650
-b11010 L
-b11001 O
+b11010 Q
+b11001 T
 1-
 #2700
 0-
 #2750
-b11011 L
-b11010 O
+b11011 Q
+b11010 T
 1-
 #2800
 0-
 #2850
-b11100 L
-b11011 O
+b11100 Q
+b11011 T
 1-
 #2900
 0-
 #2950
 1'
-1E
-b100 7
-b100 Q
-b100 R
+1J
 0&
-0A
 09
 18
-0C
-b11101 L
-1I
-b11100 O
+0D
+0G
+1F
+07
+0H
+b11101 Q
+1N
+b11100 T
 1-
 #3000
 0-
 #3050
-b11110 L
-b11101 O
+b11110 Q
+b11101 T
 1-
 #3100
 0-
 #3150
-b11111 L
-b11110 O
+b11111 Q
+b11110 T
 1-
 #3200
 0-
 #3250
-b100000 L
-b11111 O
+b100000 Q
+b11111 T
 1-
 #3300
 0-
 #3350
-b1000000 g
-b1000000 h
+b1000000 k
+b1000000 l
+b101 6
+b101 U
+b101 V
 1&
-1A
 19
 08
-1C
-b100001 L
-0I
-b100000 O
+1D
+1G
+0F
+17
+1H
+b100001 Q
+0N
+b100000 T
 1-
 #3400
 0-
 #3450
-b100010 L
-b100001 O
+b100010 Q
+b100001 T
 1-
 #3500
 0-
 #3550
-b100011 L
-b100010 O
+b100011 Q
+b100010 T
 1-
 #3600
 0-
 #3650
-b100100 L
-b100011 O
+b100100 Q
+b100011 T
 1-
 #3700
 0-
 #3750
 0'
-0E
-b101 7
-b101 Q
-b101 R
+0J
 0&
-0A
 09
 18
-0C
-b100101 L
-1I
-b100100 O
+0D
+0G
+1F
+07
+0H
+b100101 Q
+1N
+b100100 T
 1-
 #3800
 0-
 #3850
-b100110 L
-b100101 O
+b100110 Q
+b100101 T
 1-
 #3900
 0-
 #3950
-b100111 L
-b100110 O
+b100111 Q
+b100110 T
 1-
 #4000
 0-
 #4050
-b101000 L
-b100111 O
+b101000 Q
+b100111 T
 1-
 #4100
 0-
 #4150
-b10000000 g
-b10000000 h
+b10000000 k
+b10000000 l
+b110 6
+b110 U
+b110 V
 1&
-1A
 19
 08
-1C
-b101001 L
-0I
-b101000 O
+1D
+1G
+0F
+17
+1H
+b101001 Q
+0N
+b101000 T
 1-
 #4200
 0-
 #4250
-b101010 L
-b101001 O
+b101010 Q
+b101001 T
 1-
 #4300
 0-
 #4350
-b101011 L
-b101010 O
+b101011 Q
+b101010 T
 1-
 #4400
 0-
 #4450
-b101100 L
-b101011 O
+b101100 Q
+b101011 T
 1-
 #4500
 0-
 #4550
 1'
-1E
-b110 7
-b110 Q
-b110 R
+1J
 0&
-0A
 09
 18
-0C
-b101101 L
-1I
-b101100 O
+0D
+0G
+1F
+07
+0H
+b101101 Q
+1N
+b101100 T
 1-
 #4600
 0-
 #4650
-b101110 L
-b101101 O
+b101110 Q
+b101101 T
 1-
 #4700
 0-
 #4750
-b101111 L
-b101110 O
+b101111 Q
+b101110 T
 1-
 #4800
 0-
 #4850
-b110000 L
-b101111 O
+b110000 Q
+b101111 T
 1-
 #4900
 0-
 #4950
-b0 g
-b0 h
+b0 k
+b10 [
+b0 l
+b111 6
+b111 U
+b111 V
 1&
-1A
 19
 08
-1C
-b110001 L
-0I
-b110000 O
+1D
+1G
+0F
+17
+1H
+b110001 Q
+0N
+b110000 T
 1-
 #5000
 0-
 #5050
-b110010 L
-b110001 O
+b110010 Q
+b110001 T
 1-
 #5100
 0-
 #5150
-b110011 L
-b110010 O
+b110011 Q
+b110010 T
 1-
 #5200
 0-
 #5250
-b110100 L
-b110011 O
+b110100 Q
+b110011 T
 1-
 #5300
 0-
 #5350
 0'
-b10 W
-0E
-b111 7
-b111 Q
-b111 R
+0J
 0&
-0A
 09
 18
-0C
-b110101 L
-1I
-b110100 O
+0D
+0G
+1F
+07
+0H
+b110101 Q
+1N
+b110100 T
 1-
 #5400
 0-
 #5450
-b110110 L
-b110101 O
+b110110 Q
+b110101 T
 1-
 #5500
 0-
 #5550
-b110111 L
-b110110 O
+b110111 Q
+b110110 T
 1-
 #5600
 0-
 #5650
-b111000 L
-b110111 O
+b111000 Q
+b110111 T
 1-
 #5700
 0-
 #5750
-1&
-1A
-19
+b0 B
+b0 a
+b0 j
+0:
+1E
+1>
+1@
+14
+05
+03
+b0 [
+b0 6
+b0 U
+b0 V
+b10 Z
+0&
+09
 08
-1C
-b111001 L
-0I
-b111000 O
+0D
+0G
+0F
+07
+0H
+b111001 Q
+0N
+b111000 T
 1-
 #5800
 0-
 #5850
-b111010 L
-b111001 O
+bz B
+bz a
+bz j
+1A
+1E
+0>
+0@
+14
+b1 [
+b0 C
+b0 `
+b0 h
+b0 b
+1$
+b0 Z
+b111010 Q
+b111001 T
 1-
 #5900
 0-
 #5950
-b111011 L
-b111010 O
+b10101010 k
+b10101010 l
+0$
+b10101010 C
+b10101010 `
+b10101010 h
+b10101010 b
+1\
+b111011 Q
+b111010 T
 1-
 #6000
 0-
 #6050
-b111100 L
-b111011 O
+b1010100 k
+1'
+b1010100 l
+1J
+b1 6
+b1 U
+b1 V
+1&
+19
+1D
+1G
+08
+17
+1H
+0F
+x:
+15
+13
+0E
+0A
+04
+b1 Z
+0\
+b111100 Q
+b111011 T
 1-
 #6100
 0-
 #6150
-b0 ?
-b0 ]
-b0 f
-xP
-1;
-1=
-15
-06
-1B
-04
-b0 W
-b10 V
-b0 7
-b0 Q
-b0 R
+0'
+0J
 0&
-0A
 09
-08
-0C
-b111101 L
-1I
-b111100 O
+18
+0D
+0G
+1F
+07
+0H
+b111101 Q
+1N
+b111100 T
 1-
 #6200
 0-
 #6250
-bz ?
-bz ]
-bz f
-1>
-0B
-0;
-0=
-15
-b1 W
-b0 @
-b0 \
-b0 d
-b0 ^
-1$
-b0 V
-b111110 L
-b111101 O
+b111110 Q
+b111101 T
 1-
 #6300
 0-
 #6350
-b10101010 g
-b10101010 h
-b10101010 @
-b10101010 \
-b10101010 d
-b10101010 ^
-1X
-b111111 L
-b111110 O
+b111111 Q
+b111110 T
 1-
 #6400
 0-
 #6450
-1'
-1E
-1P
-18
-16
-14
-1B
-0>
-05
-b1 V
-0X
-b1000000 L
-b111111 O
+b1000000 Q
+b111111 T
 1-
 #6500
 0-
 #6550
-b1010100 g
-b1010100 h
-0$
+b10101000 k
+b10101000 l
+b10 6
+b10 U
+b10 V
 1&
-1A
 19
 08
-1C
-b1000001 L
-0I
-b1000000 O
+1D
+1G
+0F
+17
+1H
+b1000001 Q
+0N
+b1000000 T
 1-
 #6600
 0-
 #6650
-b1000010 L
-b1000001 O
+b1000010 Q
+b1000001 T
 1-
 #6700
 0-
 #6750
-b1000011 L
-b1000010 O
+b1000011 Q
+b1000010 T
 1-
 #6800
 0-
 #6850
-b1000100 L
-b1000011 O
+b1000100 Q
+b1000011 T
 1-
 #6900
 0-
 #6950
-0'
-0E
-b1 7
-b1 Q
-b1 R
+1'
+1J
 0&
-0A
 09
 18
-0C
-b1000101 L
-1I
-b1000100 O
+0D
+0G
+1F
+07
+0H
+b1000101 Q
+1N
+b1000100 T
 1-
 #7000
 0-
 #7050
-b1000110 L
-b1000101 O
+b1000110 Q
+b1000101 T
 1-
 #7100
 0-
 #7150
-b1000111 L
-b1000110 O
+b1000111 Q
+b1000110 T
 1-
 #7200
 0-
 #7250
-b1001000 L
-b1000111 O
+b1001000 Q
+b1000111 T
 1-
 #7300
 0-
 #7350
-b10101000 g
-b10101000 h
+b1010000 k
+b1010000 l
+b11 6
+b11 U
+b11 V
 1&
-1A
 19
 08
-1C
-b1001001 L
-0I
-b1001000 O
+1D
+1G
+0F
+17
+1H
+b1001001 Q
+0N
+b1001000 T
 1-
 #7400
 0-
 #7450
-b1001010 L
-b1001001 O
+b1001010 Q
+b1001001 T
 1-
 #7500
 0-
 #7550
-b1001011 L
-b1001010 O
+b1001011 Q
+b1001010 T
 1-
 #7600
 0-
 #7650
-b1001100 L
-b1001011 O
+b1001100 Q
+b1001011 T
 1-
 #7700
 0-
 #7750
-1'
-1E
-b10 7
-b10 Q
-b10 R
+0'
+0J
 0&
-0A
 09
 18
-0C
-b1001101 L
-1I
-b1001100 O
+0D
+0G
+1F
+07
+0H
+b1001101 Q
+1N
+b1001100 T
 1-
 #7800
 0-
 #7850
-b1001110 L
-b1001101 O
+b1001110 Q
+b1001101 T
 1-
 #7900
 0-
 #7950
-b1001111 L
-b1001110 O
+b1001111 Q
+b1001110 T
 1-
 #8000
 0-
 #8050
-b1010000 L
-b1001111 O
+b1010000 Q
+b1001111 T
 1-
 #8100
 0-
 #8150
-b1010000 g
-b1010000 h
+b10100000 k
+b10100000 l
+b100 6
+b100 U
+b100 V
 1&
-1A
 19
 08
-1C
-b1010001 L
-0I
-b1010000 O
+1D
+1G
+0F
+17
+1H
+b1010001 Q
+0N
+b1010000 T
 1-
 b11111111 *
 b11111111 1
-b11111111 [
+b11111111 _
 #8200
 0-
 #8250
-b1010010 L
-b1010001 O
+b1010010 Q
+b1010001 T
 1-
 #8300
 0-
 #8350
-b1010011 L
-b1010010 O
+b1010011 Q
+b1010010 T
 1-
 #8400
 0-
 #8450
-b1010100 L
-b1010011 O
+b1010100 Q
+b1010011 T
 1-
 #8500
 0-
 #8550
-0'
-0E
-b11 7
-b11 Q
-b11 R
+1'
+1J
 0&
-0A
 09
 18
-0C
-b1010101 L
-1I
-b1010100 O
+0D
+0G
+1F
+07
+0H
+b1010101 Q
+1N
+b1010100 T
 1-
 #8600
 0-
 #8650
-b1010110 L
-b1010101 O
+b1010110 Q
+b1010101 T
 1-
 #8700
 0-
 #8750
-b1010111 L
-b1010110 O
+b1010111 Q
+b1010110 T
 1-
 #8800
 0-
 #8850
-b1011000 L
-b1010111 O
+b1011000 Q
+b1010111 T
 1-
 #8900
 0-
 #8950
-b10100000 g
-b10100000 h
+b1000000 k
+b1000000 l
+b101 6
+b101 U
+b101 V
 1&
-1A
 19
 08
-1C
-b1011001 L
-0I
-b1011000 O
+1D
+1G
+0F
+17
+1H
+b1011001 Q
+0N
+b1011000 T
 1-
 #9000
 0-
 #9050
-b1011010 L
-b1011001 O
+b1011010 Q
+b1011001 T
 1-
 #9100
 0-
 #9150
-b1011011 L
-b1011010 O
+b1011011 Q
+b1011010 T
 1-
 #9200
 0-
 #9250
-b1011100 L
-b1011011 O
+b1011100 Q
+b1011011 T
 1-
 #9300
 0-
 #9350
-1'
-1E
-b100 7
-b100 Q
-b100 R
+0'
+0J
 0&
-0A
 09
 18
-0C
-b1011101 L
-1I
-b1011100 O
+0D
+0G
+1F
+07
+0H
+b1011101 Q
+1N
+b1011100 T
 1-
 #9400
 0-
 #9450
-b1011110 L
-b1011101 O
+b1011110 Q
+b1011101 T
 1-
 #9500
 0-
 #9550
-b1011111 L
-b1011110 O
+b1011111 Q
+b1011110 T
 1-
 #9600
 0-
 #9650
-b1100000 L
-b1011111 O
+b1100000 Q
+b1011111 T
 1-
 #9700
 0-
 #9750
-b1000000 g
-b1000000 h
+b10000000 k
+b10000000 l
+b110 6
+b110 U
+b110 V
 1&
-1A
 19
 08
-1C
-b1100001 L
-0I
-b1100000 O
+1D
+1G
+0F
+17
+1H
+b1100001 Q
+0N
+b1100000 T
 1-
 #9800
 0-
 #9850
-b1100010 L
-b1100001 O
+b1100010 Q
+b1100001 T
 1-
 #9900
 0-
 #9950
-b1100011 L
-b1100010 O
+b1100011 Q
+b1100010 T
 1-
 #10000
 0-
 #10050
-b1100100 L
-b1100011 O
+b1100100 Q
+b1100011 T
 1-
 #10100
 0-
 #10150
-0'
-0E
-b101 7
-b101 Q
-b101 R
+1'
+1J
 0&
-0A
 09
 18
-0C
-b1100101 L
-1I
-b1100100 O
+0D
+0G
+1F
+07
+0H
+b1100101 Q
+1N
+b1100100 T
 1-
 #10200
 0-
 #10250
-b1100110 L
-b1100101 O
+b1100110 Q
+b1100101 T
 1-
 #10300
 0-
 #10350
-b1100111 L
-b1100110 O
+b1100111 Q
+b1100110 T
 1-
 #10400
 0-
 #10450
-b1101000 L
-b1100111 O
+b1101000 Q
+b1100111 T
 1-
 #10500
 0-
 #10550
-b10000000 g
-b10000000 h
+b0 k
+b10 [
+b0 l
+b111 6
+b111 U
+b111 V
 1&
-1A
 19
 08
-1C
-b1101001 L
-0I
-b1101000 O
+1D
+1G
+0F
+17
+1H
+b1101001 Q
+0N
+b1101000 T
 1-
 #10600
 0-
 #10650
-b1101010 L
-b1101001 O
+b1101010 Q
+b1101001 T
 1-
 #10700
 0-
 #10750
-b1101011 L
-b1101010 O
+b1101011 Q
+b1101010 T
 1-
 #10800
 0-
 #10850
-b1101100 L
-b1101011 O
+b1101100 Q
+b1101011 T
 1-
 #10900
 0-
 #10950
-1'
-1E
-b110 7
-b110 Q
-b110 R
+0'
+0J
 0&
-0A
 09
 18
-0C
-b1101101 L
-1I
-b1101100 O
+0D
+0G
+1F
+07
+0H
+b1101101 Q
+1N
+b1101100 T
 1-
 #11000
 0-
 #11050
-b1101110 L
-b1101101 O
+b1101110 Q
+b1101101 T
 1-
 #11100
 0-
 #11150
-b1101111 L
-b1101110 O
+b1101111 Q
+b1101110 T
 1-
 #11200
 0-
 #11250
-b1110000 L
-b1101111 O
+b1110000 Q
+b1101111 T
 1-
 #11300
 0-
 #11350
-b0 g
-b0 h
-1&
-1A
-19
+b0 B
+b0 a
+b0 j
+0:
+1E
+1>
+1@
+14
+05
+03
+b0 [
+b0 6
+b0 U
+b0 V
+b10 Z
+0&
+09
 08
-1C
-b1110001 L
-0I
-b1110000 O
+0D
+0G
+0F
+07
+0H
+b1110001 Q
+0N
+b1110000 T
 1-
 #11400
 0-
 #11450
-b1110010 L
-b1110001 O
+bz B
+bz a
+bz j
+1A
+1E
+0>
+0@
+14
+b1 [
+b0 C
+b0 `
+b0 h
+b0 b
+1$
+b0 Z
+b1110010 Q
+b1110001 T
 1-
 #11500
 0-
 #11550
-b1110011 L
-b1110010 O
+b11111111 k
+b11111111 l
+0$
+b11111111 C
+b11111111 `
+b11111111 h
+b11111111 b
+1\
+b1110011 Q
+b1110010 T
 1-
 #11600
 0-
 #11650
-b1110100 L
-b1110011 O
+b11111110 k
+1'
+b11111110 l
+1J
+b1 6
+b1 U
+b1 V
+1&
+19
+1D
+1G
+08
+17
+1H
+0F
+x:
+15
+13
+0E
+0A
+04
+b1 Z
+0\
+b1110100 Q
+b1110011 T
 1-
 #11700
 0-
 #11750
-0'
-b10 W
-0E
-b111 7
-b111 Q
-b111 R
 0&
-0A
 09
 18
-0C
-b1110101 L
-1I
-b1110100 O
+0D
+0G
+1F
+07
+0H
+b1110101 Q
+1N
+b1110100 T
 1-
 #11800
 0-
 #11850
-b1110110 L
-b1110101 O
+b1110110 Q
+b1110101 T
 1-
 #11900
 0-
 #11950
-b1110111 L
-b1110110 O
+b1110111 Q
+b1110110 T
 1-
 #12000
 0-
 #12050
-b1111000 L
-b1110111 O
+b1111000 Q
+b1110111 T
 1-
 #12100
 0-
 #12150
+b11111100 k
+b11111100 l
+b10 6
+b10 U
+b10 V
 1&
-1A
 19
 08
-1C
-b1111001 L
-0I
-b1111000 O
+1D
+1G
+0F
+17
+1H
+b1111001 Q
+0N
+b1111000 T
 1-
 #12200
 0-
 #12250
-b1111010 L
-b1111001 O
+b1111010 Q
+b1111001 T
 1-
 #12300
 0-
 #12350
-b1111011 L
-b1111010 O
+b1111011 Q
+b1111010 T
 1-
 #12400
 0-
 #12450
-b1111100 L
-b1111011 O
+b1111100 Q
+b1111011 T
 1-
 #12500
 0-
 #12550
-b0 ?
-b0 ]
-b0 f
-xP
-1;
-1=
-15
-06
-1B
-04
-b0 W
-b10 V
-b0 7
-b0 Q
-b0 R
 0&
-0A
 09
-08
-0C
-b1111101 L
-1I
-b1111100 O
+18
+0D
+0G
+1F
+07
+0H
+b1111101 Q
+1N
+b1111100 T
 1-
 #12600
 0-
 #12650
-bz ?
-bz ]
-bz f
-1>
-0B
-0;
-0=
-15
-b1 W
-b0 @
-b0 \
-b0 d
-b0 ^
-1$
-b0 V
-b1111110 L
-b1111101 O
+b1111110 Q
+b1111101 T
 1-
 #12700
 0-
 #12750
-b11111111 g
-b11111111 h
-b11111111 @
-b11111111 \
-b11111111 d
-b11111111 ^
-1X
-b1111111 L
-b1111110 O
+b1111111 Q
+b1111110 T
 1-
 #12800
 0-
 #12850
-1'
-1E
-1P
-18
-16
-14
-1B
-0>
-05
-b1 V
-0X
-b10000000 L
-b1111111 O
+b10000000 Q
+b1111111 T
 1-
 #12900
 0-
 #12950
-b11111110 g
-b11111110 h
-0$
+b11111000 k
+b11111000 l
+b11 6
+b11 U
+b11 V
 1&
-1A
 19
 08
-1C
-b10000001 L
-0I
-b10000000 O
+1D
+1G
+0F
+17
+1H
+b10000001 Q
+0N
+b10000000 T
 1-
 #13000
 0-
 #13050
-b10000010 L
-b10000001 O
+b10000010 Q
+b10000001 T
 1-
 #13100
 0-
 #13150
-b10000011 L
-b10000010 O
+b10000011 Q
+b10000010 T
 1-
 #13200
 0-
 #13250
-b10000100 L
-b10000011 O
+b10000100 Q
+b10000011 T
 1-
 #13300
 0-
 #13350
-b1 7
-b1 Q
-b1 R
 0&
-0A
 09
 18
-0C
-b10000101 L
-1I
-b10000100 O
+0D
+0G
+1F
+07
+0H
+b10000101 Q
+1N
+b10000100 T
 1-
 #13400
 0-
 #13450
-b10000110 L
-b10000101 O
+b10000110 Q
+b10000101 T
 1-
 #13500
 0-
 #13550
-b10000111 L
-b10000110 O
+b10000111 Q
+b10000110 T
 1-
 #13600
 0-
 #13650
-b10001000 L
-b10000111 O
+b10001000 Q
+b10000111 T
 1-
 #13700
 0-
 #13750
-b11111100 g
-b11111100 h
+b11110000 k
+b11110000 l
+b100 6
+b100 U
+b100 V
 1&
-1A
 19
 08
-1C
-b10001001 L
-0I
-b10001000 O
+1D
+1G
+0F
+17
+1H
+b10001001 Q
+0N
+b10001000 T
 1-
 #13800
 0-
 #13850
-b10001010 L
-b10001001 O
+b10001010 Q
+b10001001 T
 1-
 #13900
 0-
 #13950
-b10001011 L
-b10001010 O
+b10001011 Q
+b10001010 T
 1-
 #14000
 0-
 #14050
-b10001100 L
-b10001011 O
+b10001100 Q
+b10001011 T
 1-
 #14100
 0-
 #14150
-b10 7
-b10 Q
-b10 R
 0&
-0A
 09
 18
-0C
-b10001101 L
-1I
-b10001100 O
+0D
+0G
+1F
+07
+0H
+b10001101 Q
+1N
+b10001100 T
 1-
 #14200
 0-
 #14250
-b10001110 L
-b10001101 O
+b10001110 Q
+b10001101 T
 1-
 #14300
 0-
 #14350
-b10001111 L
-b10001110 O
+b10001111 Q
+b10001110 T
 1-
 #14400
 0-
 #14450
-b10010000 L
-b10001111 O
+b10010000 Q
+b10001111 T
 1-
 #14500
 0-
 #14550
-b11111000 g
-b11111000 h
+b11100000 k
+b11100000 l
+b101 6
+b101 U
+b101 V
 1&
-1A
 19
 08
-1C
-b10010001 L
-0I
-b10010000 O
+1D
+1G
+0F
+17
+1H
+b10010001 Q
+0N
+b10010000 T
 1-
 #14600
 0-
 #14650
-b10010010 L
-b10010001 O
+b10010010 Q
+b10010001 T
 1-
 #14700
 0-
 #14750
-b10010011 L
-b10010010 O
+b10010011 Q
+b10010010 T
 1-
 #14800
 0-
 #14850
-b10010100 L
-b10010011 O
+b10010100 Q
+b10010011 T
 1-
 #14900
 0-
 #14950
-b11 7
-b11 Q
-b11 R
 0&
-0A
 09
 18
-0C
-b10010101 L
-1I
-b10010100 O
+0D
+0G
+1F
+07
+0H
+b10010101 Q
+1N
+b10010100 T
 1-
 #15000
 0-
 #15050
-b10010110 L
-b10010101 O
+b10010110 Q
+b10010101 T
 1-
 #15100
 0-
 #15150
-b10010111 L
-b10010110 O
+b10010111 Q
+b10010110 T
 1-
 #15200
 0-
 #15250
-b10011000 L
-b10010111 O
+b10011000 Q
+b10010111 T
 1-
 #15300
 0-
 #15350
-b11110000 g
-b11110000 h
+b11000000 k
+b11000000 l
+b110 6
+b110 U
+b110 V
 1&
-1A
 19
 08
-1C
-b10011001 L
-0I
-b10011000 O
+1D
+1G
+0F
+17
+1H
+b10011001 Q
+0N
+b10011000 T
 1-
 #15400
 0-
 #15450
-b10011010 L
-b10011001 O
+b10011010 Q
+b10011001 T
 1-
 #15500
 0-
 #15550
-b10011011 L
-b10011010 O
+b10011011 Q
+b10011010 T
 1-
 #15600
 0-
 #15650
-b10011100 L
-b10011011 O
+b10011100 Q
+b10011011 T
 1-
 #15700
 0-
 #15750
-b100 7
-b100 Q
-b100 R
 0&
-0A
 09
 18
-0C
-b10011101 L
-1I
-b10011100 O
+0D
+0G
+1F
+07
+0H
+b10011101 Q
+1N
+b10011100 T
 1-
 #15800
 0-
 #15850
-b10011110 L
-b10011101 O
+b10011110 Q
+b10011101 T
 1-
 #15900
 0-
 #15950
-b10011111 L
-b10011110 O
+b10011111 Q
+b10011110 T
 1-
 #16000
 0-
 #16050
-b10100000 L
-b10011111 O
+b10100000 Q
+b10011111 T
 1-
 #16100
 0-
 #16150
-b11100000 g
-b11100000 h
+b10000000 k
+b10 [
+b10000000 l
+b111 6
+b111 U
+b111 V
 1&
-1A
 19
 08
-1C
-b10100001 L
-0I
-b10100000 O
+1D
+1G
+0F
+17
+1H
+b10100001 Q
+0N
+b10100000 T
 1-

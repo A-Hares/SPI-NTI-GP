@@ -1,5 +1,5 @@
 `default_nettype none
-module SCK_control(
+module SCK_control_master(
     input wire M_BaudRate,
     input wire CPOL,
     input wire CPHA,

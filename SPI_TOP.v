@@ -11,11 +11,10 @@ module moduleName #(
     input  wire        SS_master,
     output wire        SS_slave,  //!connected to slave control
     output wire        SCK_in, 
-    input  wire        SPCR_in,
+    input  wire [7:0]  SPCR_in,
     input  wire        LSBFE,
     input  wire        SPISR_in,
-    input  wire        SPTEF,
-    input  wire        SPIBR_in
+    input  wire [7:0]  SPIBR_in
 
 );
   
@@ -133,8 +132,7 @@ SPISR u_SPISR(
     .rst      (rst      ),
     .en       (Reg_write_en),
     .SPISR_in (SPISR_in ),
-    .SPIF     (SPIF     ),
-    .SPTEF    (SPTEF    )
+    .SPIF     (SPIF     )
 );
 //______________________________________________________________________________
 SPIBR u_SPIBR(

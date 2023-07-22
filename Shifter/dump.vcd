@@ -1,0 +1,176 @@
+$date
+	Sat Jul 22 14:24:14 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module Shifter_TB $end
+$var wire 1 ! SPDR_rd_en $end
+$var wire 1 " shifter_en $end
+$var wire 1 # Shift_clk $end
+$var wire 1 $ Sample_clk $end
+$var wire 8 % SPDR_out [7:0] $end
+$var wire 1 & SCK_out $end
+$var wire 1 ' Data_out $end
+$var reg 1 ( CPHA $end
+$var reg 1 ) CPOL $end
+$var reg 1 * Data_in $end
+$var reg 1 + M_BaudRate $end
+$var reg 8 , SPDR_in [7:0] $end
+$var reg 1 - SPDR_wr_en $end
+$var reg 1 . idle $end
+$scope module sck1 $end
+$var wire 1 ( CPHA $end
+$var wire 1 ) CPOL $end
+$var wire 1 + M_BaudRate $end
+$var wire 1 . idle $end
+$var reg 1 & SCK_out $end
+$var reg 1 $ Sample_clk $end
+$var reg 1 # Shift_clk $end
+$upscope $end
+$scope module shift_inst1 $end
+$var wire 1 * Data_in $end
+$var wire 8 / SPDR_in [7:0] $end
+$var wire 1 ! SPDR_rd_en $end
+$var wire 1 - SPDR_wr_en $end
+$var wire 1 $ Sample_clk $end
+$var wire 1 # Shift_clk $end
+$var wire 1 " shifter_en $end
+$var parameter 32 0 DWIDTH $end
+$var reg 1 ' Data_out $end
+$var reg 8 1 SPDR_out [7:0] $end
+$var reg 8 2 shifter_data [7:0] $end
+$var reg 8 3 shifter_data_reg [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000 0
+$end
+#0
+$dumpvars
+b11111111 3
+b11111111 2
+bz 1
+b11111111 /
+1.
+0-
+b11111111 ,
+0+
+0*
+0)
+1(
+x'
+0&
+bz %
+0$
+0#
+1"
+1!
+$end
+#50
+1'
+1&
+1#
+0!
+0.
+#60
+b11111110 2
+b11111110 3
+0&
+1$
+0#
+1+
+#70
+1&
+0$
+1#
+0+
+#80
+b11111100 2
+b11111100 3
+0&
+1$
+0#
+1+
+#90
+1&
+0$
+1#
+0+
+#100
+b11111000 2
+b11111000 3
+0&
+1$
+0#
+1+
+#110
+1&
+0$
+1#
+0+
+#120
+b11110000 2
+b11110000 3
+0&
+1$
+0#
+1+
+#130
+1&
+0$
+1#
+0+
+#140
+b11100000 2
+b11100000 3
+0&
+1$
+0#
+1+
+#150
+1&
+0$
+1#
+0+
+#160
+b11000000 2
+b11000000 3
+0&
+1$
+0#
+1+
+#170
+1&
+0$
+1#
+0+
+#180
+b10000000 2
+b10000000 3
+0&
+1$
+0#
+1+
+#190
+1&
+0$
+1#
+0+
+#200
+b0 2
+b0 3
+0&
+1$
+0#
+1+
+#210
+b0 %
+b0 1
+1-
+#260

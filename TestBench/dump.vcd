@@ -1,0 +1,883 @@
+$date
+	Sat Jul 22 17:10:28 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module SPI_TB $end
+$var wire 1 ! MISO $end
+$var wire 1 " SS_slave $end
+$var wire 1 # SS $end
+$var wire 1 $ SPIF $end
+$var wire 1 % SCK_in $end
+$var wire 1 & SCK $end
+$var wire 1 ' MOSI $end
+$var reg 1 ( LSBFE $end
+$var reg 8 ) SPCR_in [7:0] $end
+$var reg 8 * SPDR_From_user [7:0] $end
+$var reg 8 + SPIBR_in [7:0] $end
+$var reg 1 , SS_master $end
+$var reg 1 - clk $end
+$var reg 1 . rst $end
+$scope module DUT $end
+$var wire 1 / LSBFE $end
+$var wire 1 ! MISO $end
+$var wire 8 0 SPCR_in [7:0] $end
+$var wire 8 1 SPDR_From_user [7:0] $end
+$var wire 8 2 SPIBR_in [7:0] $end
+$var wire 1 , SS_master $end
+$var wire 1 - clk $end
+$var wire 1 . rst $end
+$var wire 1 3 shifter_en $end
+$var wire 1 4 idle $end
+$var wire 1 5 Shift_clk $end
+$var wire 1 6 Sample_clk $end
+$var wire 1 " SS_slave $end
+$var wire 1 # SS $end
+$var wire 3 7 SPR [2:0] $end
+$var wire 1 8 SPISR_in $end
+$var wire 1 $ SPIF $end
+$var wire 1 9 SPE $end
+$var wire 1 : SPDR_wr_en $end
+$var wire 1 ; SPDR_rd_en $end
+$var wire 8 < SPDR_out [7:0] $end
+$var wire 8 = SPDR_in [7:0] $end
+$var wire 1 > SCK_out $end
+$var wire 1 % SCK_in $end
+$var wire 1 & SCK $end
+$var wire 1 ? Reg_write_en $end
+$var wire 1 @ M_BaudRate $end
+$var wire 1 A MSTR $end
+$var wire 1 ' MOSI $end
+$var wire 1 B Data_out $end
+$var wire 1 C Data_in $end
+$var wire 1 D CPOL $end
+$var wire 1 E CPHA $end
+$var wire 1 F BaudRate $end
+$var wire 1 G BRG_clr $end
+$var parameter 32 H PrescalarWidth $end
+$scope module u_BRG $end
+$var wire 1 - clk $end
+$var wire 1 . rst $end
+$var wire 8 I counterNext [7:0] $end
+$var wire 1 G clr $end
+$var wire 3 J SPR [2:0] $end
+$var wire 1 F BaudRate $end
+$var parameter 32 K PrescalarWidth $end
+$var reg 8 L counter [7:0] $end
+$upscope $end
+$scope module u_Master_controller $end
+$var wire 1 G BRG_clr $end
+$var wire 1 F BaudRate $end
+$var wire 1 @ M_BaudRate $end
+$var wire 1 . rst $end
+$var wire 1 # SS $end
+$var wire 1 9 SPE $end
+$var wire 1 A MSTR $end
+$var parameter 32 M Idle $end
+$var parameter 32 N Run $end
+$var parameter 32 O Update $end
+$var reg 1 ? Reg_write_en $end
+$var reg 1 ; SPDR_rd_en $end
+$var reg 1 : SPDR_wr_en $end
+$var reg 1 8 SPIF $end
+$var reg 1 3 Shifter_en $end
+$var reg 3 P counter [2:0] $end
+$var reg 1 Q counter_enable $end
+$var reg 2 R current_state [1:0] $end
+$var reg 1 4 idle $end
+$var reg 2 S next_state [1:0] $end
+$upscope $end
+$scope module u_Port_control_logic $end
+$var wire 1 ! MISO $end
+$var wire 1 , SS_master $end
+$var wire 1 " SS_slave $end
+$var wire 1 # SS $end
+$var wire 1 > SCK_out $end
+$var wire 1 % SCK_in $end
+$var wire 1 & SCK $end
+$var wire 1 A MSTR $end
+$var wire 1 ' MOSI $end
+$var wire 1 B Data_out $end
+$var wire 1 C Data_in $end
+$upscope $end
+$scope module u_SCK_control $end
+$var wire 1 @ M_BaudRate $end
+$var wire 1 4 idle $end
+$var wire 1 D CPOL $end
+$var wire 1 E CPHA $end
+$var reg 1 > SCK_out $end
+$var reg 1 6 Sample_clk $end
+$var reg 1 5 Shift_clk $end
+$upscope $end
+$scope module u_SPCR $end
+$var wire 8 T SPCR_in [7:0] $end
+$var wire 1 - clk $end
+$var wire 1 . rst $end
+$var reg 1 E CPHA $end
+$var reg 1 D CPOL $end
+$var reg 1 U LSBFE $end
+$var reg 1 A MSTR $end
+$var reg 1 9 SPE $end
+$upscope $end
+$scope module u_SPDR $end
+$var wire 8 V SPDR_From_user [7:0] $end
+$var wire 8 W SPDR_out [7:0] $end
+$var wire 1 ; SPDR_rd_en $end
+$var wire 1 - clk $end
+$var wire 1 : en $end
+$var wire 1 . rst $end
+$var wire 8 X SPDR_in [7:0] $end
+$var reg 8 Y SPDR [7:0] $end
+$upscope $end
+$scope module u_SPIBR $end
+$var wire 8 Z SPIBR_in [7:0] $end
+$var wire 1 - clk $end
+$var wire 1 . rst $end
+$var wire 3 [ SPR [2:0] $end
+$var reg 1 \ SPR0 $end
+$var reg 1 ] SPR1 $end
+$var reg 1 ^ SPR2 $end
+$upscope $end
+$scope module u_SPISR $end
+$var wire 1 8 SPISR_in $end
+$var wire 1 - clk $end
+$var wire 1 ? en $end
+$var wire 1 . rst $end
+$var reg 1 $ SPIF $end
+$upscope $end
+$scope module u_Shifter $end
+$var wire 1 C Data_in $end
+$var wire 8 _ SPDR_in [7:0] $end
+$var wire 1 ; SPDR_rd_en $end
+$var wire 1 : SPDR_wr_en $end
+$var wire 1 6 Sample_clk $end
+$var wire 1 5 Shift_clk $end
+$var wire 1 3 shifter_en $end
+$var parameter 32 ` DWIDTH $end
+$var reg 1 B Data_out $end
+$var reg 8 a SPDR_out [7:0] $end
+$var reg 8 b shifter_data [7:0] $end
+$var reg 8 c shifter_data_reg [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000 `
+b10 O
+b1 N
+b0 M
+b11 K
+b11 H
+$end
+#0
+$dumpvars
+b0 c
+b0 b
+bz a
+b0 _
+0^
+1]
+0\
+b10 [
+bx Z
+b0 Y
+bz X
+b0 W
+bx V
+0U
+bx T
+b0 S
+b0 R
+0Q
+b0 P
+b0 L
+b10 J
+b1 I
+1G
+0F
+0E
+0D
+zC
+xB
+0A
+0@
+0?
+0>
+b0 =
+bz <
+1;
+0:
+09
+08
+b10 7
+06
+05
+14
+03
+bx 2
+bx 1
+bx 0
+x/
+0.
+0-
+x,
+bx +
+bx *
+bx )
+x(
+z'
+z&
+z%
+0$
+z#
+z"
+x!
+$end
+#50
+0!
+bx b
+bx c
+0&
+0#
+0C
+x'
+bx =
+bx W
+bx _
+bx Y
+x^
+x]
+xF
+bx 7
+bx J
+bx [
+x\
+xU
+1A
+0,
+bx0x100xx )
+bx0x100xx 0
+bx0x100xx T
+1.
+1-
+#100
+0-
+#150
+0G
+b1 S
+b10101010 b
+b10101010 c
+19
+0F
+0^
+0]
+b0 7
+b0 J
+b0 [
+0\
+b10101010 =
+b10101010 W
+b10101010 _
+b10101010 Y
+1-
+bx1x100xx )
+bx1x100xx 0
+bx1x100xx T
+b0 +
+b0 2
+b0 Z
+b10101010 *
+b10101010 1
+b10101010 V
+#200
+0-
+#250
+1'
+1B
+15
+1Q
+13
+0;
+04
+b1 R
+b10 I
+1F
+b1 L
+1-
+#300
+0-
+#350
+b1010100 b
+b1010100 c
+1&
+1>
+16
+05
+1@
+b11 I
+0F
+b10 L
+1-
+#400
+0-
+#450
+0'
+0B
+b1 P
+0&
+0>
+06
+15
+0@
+b100 I
+1F
+b11 L
+1-
+#500
+0-
+#550
+b10101000 b
+b10101000 c
+1&
+1>
+16
+05
+1@
+b101 I
+0F
+b100 L
+1-
+#600
+0-
+#650
+1'
+1B
+b10 P
+0&
+0>
+06
+15
+0@
+b110 I
+1F
+b101 L
+1-
+#700
+0-
+#750
+b1010000 b
+b1010000 c
+1&
+1>
+16
+05
+1@
+b111 I
+0F
+b110 L
+1-
+#800
+0-
+#850
+0'
+0B
+b11 P
+0&
+0>
+06
+15
+0@
+b1000 I
+1F
+b111 L
+1-
+#900
+0-
+#950
+b10100000 b
+b10100000 c
+1&
+1>
+16
+05
+1@
+b1001 I
+0F
+b1000 L
+1-
+#1000
+0-
+#1050
+1'
+1B
+b100 P
+0&
+0>
+06
+15
+0@
+b1010 I
+1F
+b1001 L
+1-
+#1100
+0-
+#1150
+b1000000 b
+b1000000 c
+1&
+1>
+16
+05
+1@
+b1011 I
+0F
+b1010 L
+1-
+#1200
+0-
+#1250
+0'
+0B
+b101 P
+0&
+0>
+06
+15
+0@
+b1100 I
+1F
+b1011 L
+1-
+#1300
+0-
+#1350
+b10000000 b
+b10000000 c
+1&
+1>
+16
+05
+1@
+b1101 I
+0F
+b1100 L
+1-
+#1400
+0-
+#1450
+1'
+1B
+b110 P
+0&
+0>
+06
+15
+0@
+b1110 I
+1F
+b1101 L
+1-
+#1500
+0-
+#1550
+b0 b
+b0 c
+1&
+1>
+16
+05
+1@
+b1111 I
+0F
+b1110 L
+1-
+#1600
+0-
+#1650
+0'
+b10 S
+0B
+b111 P
+0&
+0>
+06
+15
+0@
+b10000 I
+1F
+b1111 L
+1-
+#1700
+0-
+#1750
+1&
+1>
+16
+05
+1@
+b10001 I
+0F
+b10000 L
+1-
+#1800
+0-
+#1850
+b0 <
+b0 X
+b0 a
+1?
+18
+1:
+14
+0Q
+03
+b0 S
+b0 P
+b10 R
+0&
+0>
+06
+05
+0@
+b10010 I
+1F
+b10001 L
+1-
+#1900
+0-
+#1950
+1$
+b0 =
+b0 W
+b0 _
+b0 Y
+b10011 I
+0F
+b10010 L
+1-
+#2000
+0-
+#2050
+bz <
+bz X
+bz a
+1;
+0?
+08
+0:
+14
+b1 S
+b0 R
+b10100 I
+1F
+b10011 L
+1-
+#2100
+0-
+#2150
+b11111111 b
+b11111111 c
+b11111111 =
+b11111111 W
+b11111111 _
+b11111111 Y
+b10101 I
+0F
+b10100 L
+1-
+b11111111 *
+b11111111 1
+b11111111 V
+#2200
+0-
+#2250
+1'
+1B
+15
+1Q
+13
+0;
+04
+b1 R
+b10110 I
+1F
+b10101 L
+1-
+#2300
+0-
+#2350
+b11111110 b
+b11111110 c
+1&
+1>
+16
+05
+1@
+b10111 I
+0F
+b10110 L
+1-
+#2400
+0-
+#2450
+b1 P
+0&
+0>
+06
+15
+0@
+b11000 I
+1F
+b10111 L
+1-
+#2500
+0-
+#2550
+b11111100 b
+b11111100 c
+1&
+1>
+16
+05
+1@
+b11001 I
+0F
+b11000 L
+1-
+#2600
+0-
+#2650
+b10 P
+0&
+0>
+06
+15
+0@
+b11010 I
+1F
+b11001 L
+1-
+#2700
+0-
+#2750
+b11111000 b
+b11111000 c
+1&
+1>
+16
+05
+1@
+b11011 I
+0F
+b11010 L
+1-
+#2800
+0-
+#2850
+b11 P
+0&
+0>
+06
+15
+0@
+b11100 I
+1F
+b11011 L
+1-
+#2900
+0-
+#2950
+b11110000 b
+b11110000 c
+1&
+1>
+16
+05
+1@
+b11101 I
+0F
+b11100 L
+1-
+#3000
+0-
+#3050
+b100 P
+0&
+0>
+06
+15
+0@
+b11110 I
+1F
+b11101 L
+1-
+#3100
+0-
+#3150
+b11100000 b
+b11100000 c
+1&
+1>
+16
+05
+1@
+b11111 I
+0F
+b11110 L
+1-
+#3200
+0-
+#3250
+b101 P
+0&
+0>
+06
+15
+0@
+b100000 I
+1F
+b11111 L
+1-
+#3300
+0-
+#3350
+b11000000 b
+b11000000 c
+1&
+1>
+16
+05
+1@
+b100001 I
+0F
+b100000 L
+1-
+#3400
+0-
+#3450
+b110 P
+0&
+0>
+06
+15
+0@
+b100010 I
+1F
+b100001 L
+1-
+#3500
+0-
+#3550
+b10000000 b
+b10000000 c
+1&
+1>
+16
+05
+1@
+b100011 I
+0F
+b100010 L
+1-
+#3600
+0-
+#3650
+b10 S
+b111 P
+0&
+0>
+06
+15
+0@
+b100100 I
+1F
+b100011 L
+1-
+#3700
+0-
+#3750
+b0 b
+b0 c
+1&
+1>
+16
+05
+1@
+b100101 I
+0F
+b100100 L
+1-
+#3800
+0-
+#3850
+b0 <
+b0 X
+b0 a
+0'
+1?
+18
+1:
+14
+0Q
+03
+b0 S
+0B
+b0 P
+b10 R
+0&
+0>
+06
+05
+0@
+b100110 I
+1F
+b100101 L
+1-
+#3900
+0-
+#3950
+b0 =
+b0 W
+b0 _
+b0 Y
+b100111 I
+0F
+b100110 L
+1-
+#4000
+0-
+#4050
+bz <
+bz X
+bz a
+1;
+0?
+08
+0:
+14
+b1 S
+b0 R
+b101000 I
+1F
+b100111 L
+1-
+#4100
+0-
+#4150
+b11111111 b
+b11111111 c
+b11111111 =
+b11111111 W
+b11111111 _
+b11111111 Y
+b101001 I
+0F
+b101000 L
+1-

@@ -1,6 +1,15 @@
 `default_nettype none
+`include "../BRG/BRG.v"
+`include "../Master_controller/Master_controller.v"
+`include "../Port_control_logic\Port_control_logic.v"
+`include "../Registers\SPCR.v"
+`include "../Registers\SPDR.v"
+`include "../Registers\SPIBR.v"
+`include "../Registers\SPISR.v"
+`include "../SCK_control\SCK_control.v"
+`include "../Shifter\Shifter.v"
 module SPI_TOP #(
-    parameter PrescalarWidth=3
+    parameter PrescalarWidth = 3
 ) (
     input  wire        rst,
     inout  wire        SS,
@@ -13,8 +22,9 @@ module SPI_TOP #(
     output wire        SCK_in, 
     input  wire [7:0]  SPCR_in,
     input  wire        LSBFE,
-    input  wire        SPISR_in,
-    input  wire [7:0]  SPIBR_in
+    output  wire        SPIF,
+    input  wire [7:0]  SPIBR_in,
+    input  wire [7:0]  SPDR_From_user
 
 );
   
@@ -34,7 +44,7 @@ wire               SPE;
 wire               MSTR;
 wire               Reg_write_en;
 wire               idle;
-wire               SPIF;
+wire               SPISR_in;
 wire               SCK_out;
 wire               CPHA;
 wire               CPOL;
@@ -79,7 +89,7 @@ Master_controller u_Master_controller(
     .Shifter_en   (shifter_en   ),
     .idle         (idle         ),
     .M_BaudRate   (M_BaudRate   ),
-    .SPIF         (SPIF         ),
+    .SPIF         (SPISR_in     ),
     .BRG_clr      (BRG_clr      ),
     .SPDR_wr_en   (SPDR_wr_en   ),
     .SPDR_rd_en   (SPDR_rd_en   )
@@ -144,11 +154,13 @@ SPIBR u_SPIBR(
 //______________________________________________________________________________
 
 SPDR u_SPDR(
-    .SPDR_in  (SPDR_in  ),
+    .SPDR_in  (SPDR_out  ),
     .clk      (clk      ),
     .rst      (rst      ),
     .en       (SPDR_wr_en),
-    .SPDR_out (SPDR_out )
+    .SPDR_out (SPDR_in ),
+    .SPDR_From_user(SPDR_From_user),
+    .SPDR_rd_en(SPDR_rd_en)
 );
 
 

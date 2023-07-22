@@ -22,10 +22,7 @@ module SPI_TOP #(
     inout  wire        SCK,
     input  wire        clk,
     input  wire        SS_master,
-    output wire        SS_slave,  //!connected to slave control
-    output wire        SCK_in, 
     input  wire [7:0]  SPCR_in,
-    input  wire        LSBFE,
     output  wire        SPIF,
     input  wire [7:0]  SPIBR_in,
     input  wire [7:0]  SPDR_From_user
@@ -33,6 +30,8 @@ module SPI_TOP #(
 );
   
 wire               BaudRate;
+wire               LSBFE;
+wire               SCK_in;
 wire               BRG_clr;
 wire    [2:0]      SPR;
 wire               Sample_clk;
@@ -70,6 +69,7 @@ u_BRG(
 //______________________________________________________________________________
 
 Shifter u_Shifter(
+    .rst(rst),
 	.Sample_clk (Sample_clk ),
    .Shift_clk  (Shift_clk  ),
    .Data_in    (Data_in    ),
@@ -115,13 +115,16 @@ Master_slave_select u_Master_slave_select(
     .M_Shift_clk(M_Shift_clk),
     .M_Sample_clk(M_Sample_clk),
     .S_Shift_clk(S_Shift_clk),
-    .S_Sample_clk(S_Sample_clk),
+    .S_Sample_clk( S_Sample_clk),
+    .start(start),
     .idle(idle),
     .M_BaudRate(M_BaudRate),
     .control_BaudRate(control_BaudRate),
     .Shift_clk(Shift_clk),
     .Sample_clk(Sample_clk)
 );
+
+    wire start;
 
 Master_Slave_controller u_Master_Slave_controller(
     .clk          (clk),
@@ -131,6 +134,7 @@ Master_Slave_controller u_Master_Slave_controller(
     .SPE          (SPE          ),
     .MSTR         (MSTR         ),
     .counter(counter),
+    .start(start),
     .counter_enable(counter_enable),
     .Reg_write_en (Reg_write_en ),
     .Shifter_en   (shifter_en   ),
@@ -173,7 +177,6 @@ Port_control_logic u_Port_control_logic(
     .MISO      (MISO      ),
     .SCK       (SCK       ),
     .SS        (SS        ),
-    .SS_slave  (SS_slave  ),
     .SCK_in    (SCK_in    ),
     .Data_in   (Data_in   )
 );

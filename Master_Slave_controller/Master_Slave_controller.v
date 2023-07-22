@@ -13,13 +13,14 @@ module Master_Slave_controller(
     output reg Reg_write_en,       // enable writing in SPI Status Register(SPSR) , to enable writing SPIF
     output reg Shifter_en,         // enable shifter operation 
     output reg idle,               // signal indicates that nothing is being sent/recieved, goes to SCK_control,when idle state , idle =1
+    output reg start,
     output reg SPIF,                // SPI Flag, is set to high when 1 byte is ready and written to SPDR
     output wire BRG_clr,            // is set to 1 when SS is 1 or MSTR is 0, goes to BRG
     output reg SPDR_wr_en,          // goes to shifter to enable writing to SPDR from shifter register
     output reg SPDR_rd_en           // goes to shifter to enable writing to shifter register after reading SPDR
 
 );
-    localparam Idle = 0 , Run = 1, Update = 2;
+    localparam Start = 0, Idle = 1 , Run = 2, Update = 3;
     reg [1:0] current_state, next_state;
 
     assign BRG_clr = ~MSTR | SS | ~SPE;
@@ -27,13 +28,14 @@ module Master_Slave_controller(
 
     always @(posedge control_BaudRate , negedge rst) begin
         if(~rst)
-            current_state <= Idle;
+            current_state <= Start;
         else
             current_state <= next_state;
     end
 
     always @(*) 
         case (current_state)
+            Start:  if (SPE) next_state=Idle;
             Idle:   if (!SS && SPE) begin next_state=Run; end
                     else begin next_state=Idle; end
             
@@ -49,11 +51,11 @@ module Master_Slave_controller(
         if ((current_state == Update)) begin
             current_state <= next_state;
         end 
-        else if (current_state == Idle)
-            if (temp == 0)
-                temp <= 1;
-            else 
-                current_state <= next_state;
+   //     else if (current_state == Idle)
+   //         if (temp == 0)
+   //             temp <= 1;
+          //  else 
+          //      current_state <= next_state;
     end
 
     always @(*) begin
@@ -64,7 +66,11 @@ module Master_Slave_controller(
         SPIF = 0;
         Reg_write_en = 0;
         counter_enable = 0;
+        start = 0;
         case (current_state)
+            Start:  begin
+                        start = 1;
+                    end
             Idle :  begin
                         idle = 1;
                         SPDR_rd_en = 1;

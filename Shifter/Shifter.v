@@ -1,6 +1,7 @@
 
 `default_nettype none
 module Shifter #(parameter DWIDTH = 8)(
+    input wire rst,
     input wire Sample_clk, // to take input from data in (from slave)
     input wire Shift_clk, // shifting inside shifter and to data out
     input wire Data_in,
@@ -14,6 +15,12 @@ module Shifter #(parameter DWIDTH = 8)(
     reg [DWIDTH-1:0] shifter_data_reg;
     reg [DWIDTH-1:0] shifter_data;
 
+    always@(negedge rst) begin
+        if(~rst) begin
+            Data_out = 0;
+            shifter_data = 0;
+        end
+    end
     always@(posedge Sample_clk) begin
         shifter_data_reg <= {shifter_data_reg[DWIDTH-2:0] ,Data_in};
     end

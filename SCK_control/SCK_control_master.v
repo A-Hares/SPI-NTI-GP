@@ -10,8 +10,8 @@ module SCK_control_master(
 );
 
 always @(*) begin
-    Shift_clk = !idle & !M_BaudRate;
-    Sample_clk = M_BaudRate;
+    Sample_clk = !idle & !M_BaudRate;
+    Shift_clk = !idle & M_BaudRate;
     case({CPOL, CPHA})
     0: SCK_out = M_BaudRate;
     1: SCK_out = !idle & !M_BaudRate;

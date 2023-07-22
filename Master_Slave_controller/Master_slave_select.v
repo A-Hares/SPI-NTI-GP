@@ -8,6 +8,7 @@ module Master_slave_select(
     input wire S_Shift_clk,
     input wire S_Sample_clk,
     input wire idle,
+    input wire start,
     output reg M_BaudRate,
     output reg control_BaudRate,
     output reg Shift_clk,
@@ -16,8 +17,8 @@ module Master_slave_select(
     
     always @(*) begin
         if (MSTR) begin
-            M_BaudRate = ~idle & ~BaudRate;
-            control_BaudRate = M_BaudRate;
+            M_BaudRate = ~start & ~BaudRate;
+            control_BaudRate = ~BaudRate;
             Shift_clk = M_Shift_clk;
             Sample_clk = M_Sample_clk;
         end

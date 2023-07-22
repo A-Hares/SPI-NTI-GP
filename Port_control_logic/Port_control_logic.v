@@ -13,7 +13,6 @@ module Port_control_logic(
     inout wire  MISO,
     inout wire  SCK,
     inout wire  SS,
-    output wire SS_slave,  //! it will be driven in case Slave only
     output wire SCK_in,
     output wire Data_in
 );
@@ -28,14 +27,13 @@ assign  Data_in = MSTR ? MISO : MOSI;
 /*This pin is used to transmit data out of the SPI module when it is configured as a Slave and receive data
 when it is configured as Master.*/
 assign  MISO = ~MSTR ? Data_out:'bz;
-//assign  Data_out= MSTR ? MOSI : MISO;
+
 //----------------------------------------------------------------------------------------------------
 /*This pin is used to output the select signal from the SPI module to another peripheral with which a data
 transfer is to take place when its configured as a Masterand its used as an input to receive the slave select
 signal when the SPI is configured as Slave.*/
 assign  SS = MSTR ? SS_master : 'bz;
-assign SS_slave = MSTR ? 'bz : SS;
-//assign  Data_out= MSTR ? 'bz : SS;
+
 //----------------------------------------------------------------------------------------------------
 /*This pin is used to output the clock with respect to which the SPI transfers data or receive clock in case of
 Slave.*/

@@ -2,10 +2,9 @@
 `timescale 1ns/100ps
 `include "SPI_TOP.v"
 module SPI_TB;
-    reg rst, clk = 0, SS_master, LSBFE, SPISR_in, SPTEF;
+    reg rst, clk = 0, SS_master;
     wire SS, MISO, MOSI, SCK;
-    reg SS_reg, MISO_reg, MOSI_reg, SCK_reg;
-    wire SCK_in, SS_slave, SPIF;
+    wire SPIF;
     reg [7:0] SPCR_in, SPIBR_in, SPDR_From_user;
     
 
@@ -17,10 +16,7 @@ module SPI_TB;
         .SCK       (SCK       ),
         .clk       (clk       ),
         .SS_master (SS_master ),
-        .SS_slave  (SS_slave  ),
-        .SCK_in    (SCK_in    ),
         .SPCR_in   (SPCR_in   ),
-        .LSBFE     (LSBFE     ),
         .SPDR_From_user (SPDR_From_user),
         .SPIF  (SPIF  ),
         .SPIBR_in (SPIBR_in)

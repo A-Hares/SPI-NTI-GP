@@ -1,6 +1,7 @@
 
 `default_nettype none
 module Master_controller(
+    input wire clk,
     input wire BaudRate,            // From baud rate generator
     input wire rst,                 // Global Reset
     input wire SS,                  // Slave Select , active low, comes from processor or port register
@@ -14,6 +15,7 @@ module Master_controller(
     output wire BRG_clr,            // is set to 1 when SS is 1 or MSTR is 0, goes to BRG
     output reg SPDR_wr_en,          // goes to shifter to enable writing to SPDR from shifter register
     output reg SPDR_rd_en           // goes to shifter to enable writing to shifter register after reading SPDR
+
 );
     localparam Idle = 0 , Run = 1, Update = 2;
     reg [1:0] current_state, next_state;
@@ -51,7 +53,18 @@ module Master_controller(
 
             Update: next_state=Idle;
         endcase 
-
+    reg temp;
+    always @(posedge clk) begin
+        temp <= 0;
+        if ((current_state == Update)) begin
+            current_state <= next_state;
+        end 
+        else if (current_state == Idle)
+            if (temp == 0)
+                temp <= 1;
+            else 
+                current_state <= next_state;
+    end
 
     always @(*) begin
         idle = 0;
@@ -67,6 +80,8 @@ module Master_controller(
                         SPDR_rd_en = 1;
                     end
             Run :   begin
+                        SPIF = 0;
+                        Reg_write_en = 1;
                         Shifter_en = 1; 
                         counter_enable = 1;
                     end

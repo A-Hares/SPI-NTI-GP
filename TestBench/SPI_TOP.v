@@ -80,6 +80,7 @@ Shifter u_Shifter(
 //______________________________________________________________________________
 
 Master_controller u_Master_controller(
+    .clk          (clk),
     .BaudRate     (BaudRate     ),
     .rst          (rst          ),
     .SS           (SS           ),

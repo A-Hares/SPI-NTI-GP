@@ -38,11 +38,11 @@ module SPI_TB;
         rst = 0; #5 rst = 1; SPCR_in = 8'bx0x100xx; SS_master = 0;
         #10;
         SPDR_From_user = 8'b10101010;
-        SPIBR_in = 0;
+        SPIBR_in = 2;
         SPCR_in = 8'bx1x100xx;
-        #200;
+        #800;
         SPDR_From_user = 8'hFF;
-        #200;
+        #800;
        // SPCR_in = 8'bx0x100xx;
         $finish;
 

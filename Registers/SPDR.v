@@ -2,7 +2,7 @@
 module SPDR(
     input wire [7:0] SPDR_in,
     input wire clk, rst, en,
-    output reg SPDR_out
+    output reg [7:0] SPDR_out
 );
 
 always @(posedge clk, negedge rst) begin

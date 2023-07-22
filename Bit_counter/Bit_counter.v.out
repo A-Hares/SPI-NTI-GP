@@ -1,0 +1,56 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002287c172ce0 .scope module, "Bit_counter" "Bit_counter" 2 2;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "BaudRate";
+    .port_info 1 /INPUT 1 "rst";
+    .port_info 2 /INPUT 1 "counter_enable_master";
+    .port_info 3 /INPUT 1 "counter_enable_slave";
+    .port_info 4 /OUTPUT 3 "counter";
+o000002287c1a7028 .functor BUFZ 1, C4<z>; HiZ drive
+o000002287c1a7058 .functor BUFZ 1, C4<z>; HiZ drive
+L_000002287c173380 .functor OR 1, o000002287c1a7028, o000002287c1a7058, C4<0>, C4<0>;
+o000002287c1a6f98 .functor BUFZ 1, C4<z>; HiZ drive
+v000002287c172e70_0 .net "BaudRate", 0 0, o000002287c1a6f98;  0 drivers
+v000002287c172f10_0 .var "counter", 2 0;
+v000002287c172fb0_0 .net "counter_enable", 0 0, L_000002287c173380;  1 drivers
+v000002287c173050_0 .net "counter_enable_master", 0 0, o000002287c1a7028;  0 drivers
+v000002287c1730f0_0 .net "counter_enable_slave", 0 0, o000002287c1a7058;  0 drivers
+o000002287c1a7088 .functor BUFZ 1, C4<z>; HiZ drive
+v000002287c15e030_0 .net "rst", 0 0, o000002287c1a7088;  0 drivers
+E_000002287c158ee0/0 .event negedge, v000002287c15e030_0;
+E_000002287c158ee0/1 .event posedge, v000002287c172e70_0;
+E_000002287c158ee0 .event/or E_000002287c158ee0/0, E_000002287c158ee0/1;
+    .scope S_000002287c172ce0;
+T_0 ;
+    %wait E_000002287c158ee0;
+    %load/vec4 v000002287c15e030_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v000002287c172f10_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v000002287c172fb0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %load/vec4 v000002287c172f10_0;
+    %addi 1, 0, 3;
+    %assign/vec4 v000002287c172f10_0, 0;
+T_0.2 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Bit_counter.v";

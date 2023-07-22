@@ -1,5 +1,6 @@
 
 `default_nettype none
+
 module Master_controller(
     input wire clk,
     input wire BaudRate,            // From baud rate generator
@@ -7,6 +8,8 @@ module Master_controller(
     input wire SS,                  // Slave Select , active low, comes from processor or port register
     input wire SPE,                 // SPI enable from SPCR, comes from user
     input wire MSTR,                // Master enable from SPCR, comes from user
+    input wire [2:0] counter,
+    output reg counter_enable,
     output reg Reg_write_en,       // enable writing in SPI Status Register(SPSR) , to enable writing SPIF
     output reg Shifter_en,         // enable shifter operation 
     output reg idle,               // signal indicates that nothing is being sent/recieved, goes to SCK_control,when idle state , idle =1
@@ -20,18 +23,6 @@ module Master_controller(
     localparam Idle = 0 , Run = 1, Update = 2;
     reg [1:0] current_state, next_state;
     assign M_BaudRate = ~idle & ~BaudRate;
-   
-    reg [2:0] counter;
-    reg  counter_enable ; 
-    always@(posedge BaudRate or negedge rst)
-    begin
-        if(!rst) begin counter<='b0; end
-
-        else if (counter_enable)
-        begin 
-            counter <= counter + 1'b1;
-        end
-    end
 
     assign BRG_clr = ~MSTR | SS | ~SPE;
 
@@ -53,6 +44,7 @@ module Master_controller(
 
             Update: next_state=Idle;
         endcase 
+
     reg temp;
     always @(posedge clk) begin
         temp <= 0;

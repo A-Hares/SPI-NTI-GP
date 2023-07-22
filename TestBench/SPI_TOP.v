@@ -8,6 +8,7 @@
 `include "../Registers\SPISR.v"
 `include "../SCK_control\SCK_control.v"
 `include "../Shifter\Shifter.v"
+`include "../Bit_counter\Bit_counter.v"
 module SPI_TOP #(
     parameter PrescalarWidth = 3
 ) (
@@ -79,6 +80,18 @@ Shifter u_Shifter(
 
 //______________________________________________________________________________
 
+wire [2:0] counter;
+wire counter_enable_master;
+wire counter_enable_slave;
+
+Bit_counter u_Bit_counter(
+    .BaudRate(BaudRate),
+    .rst(rst),
+    .counter(counter),
+    .counter_enable_master(counter_enable_master),
+    .counter_enable_slave(counter_enable_slave)
+);
+
 Master_controller u_Master_controller(
     .clk          (clk),
     .BaudRate     (BaudRate     ),
@@ -93,7 +106,9 @@ Master_controller u_Master_controller(
     .SPIF         (SPISR_in     ),
     .BRG_clr      (BRG_clr      ),
     .SPDR_wr_en   (SPDR_wr_en   ),
-    .SPDR_rd_en   (SPDR_rd_en   )
+    .SPDR_rd_en   (SPDR_rd_en   ),
+    .counter(counter),
+    .counter_enable(counter_enable_master)
 );
 
 

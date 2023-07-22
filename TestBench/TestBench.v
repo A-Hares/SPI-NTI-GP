@@ -27,10 +27,6 @@ module SPI_TB;
     );
 
     always #5 clk = ~clk;
-   // assign SS = SS_reg;
-  //  always @(*) begin
-    //    if (SPIF)   SPCR_in = 8'bx0x100xx;
-   //        end
     assign MISO = 0;
     initial begin
         $dumpfile("dump.vcd");
@@ -40,7 +36,8 @@ module SPI_TB;
         SPDR_From_user = 8'b10101010;
         SPIBR_in = 2;
         SPCR_in = 8'bx1x100xx;
-        #800;
+     //   #800 SS_master = 1;
+        #800; SS_master = 0;
         SPDR_From_user = 8'hFF;
         #800;
        // SPCR_in = 8'bx0x100xx;

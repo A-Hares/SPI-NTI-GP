@@ -1,8 +1,9 @@
 module SPIBR(
     input wire [7:0] SPIBR_in,
     input wire clk, rst,
-    output reg SPR0, SPR1, SPR2
-);
+    output wire [2:0] SPR
+    );
+reg SPR0, SPR1, SPR2;
 
 always @(posedge clk or negedge rst) begin
     if(~rst)begin
@@ -15,4 +16,5 @@ always @(posedge clk or negedge rst) begin
     end
 end
 
+assign SPR={SPR2,SPR1,SPR0 };
 endmodule

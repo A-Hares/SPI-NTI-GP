@@ -7,6 +7,7 @@ module BRG
     input wire rst, // ~rst | SS
     input wire clr,
     input wire [PrescalarWidth-1:0] SPR,
+    input wire en, // ~SS & MSTR & SPE
     output wire BaudRate
 );
 
@@ -15,15 +16,14 @@ module BRG
     
 
     always @(posedge clk or negedge rst) begin
-        if(~rst )
+        if(~rst | clr)
             counter <= 0;
-        else if(clr)
-             counter <= 0;
-        else 
-          counter=counterNext;
-  
+        else begin
+            if (en) begin
+                counter <= counterNext;
+            end
+        end 
     end
-
     assign counterNext = counter + 1;
     assign BaudRate = counter[SPR];
 

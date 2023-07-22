@@ -1,0 +1,233 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000248e1c6c100 .scope module, "Shifter_TB" "Shifter_TB" 2 5;
+ .timescale -9 -10;
+L_00000248e1c6dd30 .functor BUFZ 1, v00000248e1c628a0_0, C4<0>, C4<0>, C4<0>;
+v00000248e1c623a0_0 .var "CPHA", 0 0;
+v00000248e1c61ea0_0 .var "CPOL", 0 0;
+v00000248e1c62760_0 .var "Data_in", 0 0;
+v00000248e1c62800_0 .net "Data_out", 0 0, v00000248e1c32e80_0;  1 drivers
+v00000248e1c62b20_0 .var "M_BaudRate", 0 0;
+v00000248e1c62a80_0 .net "SCK_out", 0 0, v00000248e1c67fe0_0;  1 drivers
+v00000248e1c62c60_0 .var "SPDR_in", 7 0;
+v00000248e1c62580_0 .net "SPDR_out", 7 0, v00000248e1c621c0_0;  1 drivers
+v00000248e1c626c0_0 .net "SPDR_rd_en", 0 0, L_00000248e1c6dd30;  1 drivers
+v00000248e1c62440_0 .var "SPDR_wr_en", 0 0;
+v00000248e1c62620_0 .net "Sample_clk", 0 0, v00000248e1c68080_0;  1 drivers
+v00000248e1c629e0_0 .net "Shift_clk", 0 0, v00000248e1c68120_0;  1 drivers
+v00000248e1c628a0_0 .var "idle", 0 0;
+L_00000248e1cc3038 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+v00000248e1c62940_0 .net "shifter_en", 0 0, L_00000248e1cc3038;  1 drivers
+S_00000248e1c6c290 .scope module, "sck1" "SCK_control" 2 9, 3 2 0, S_00000248e1c6c100;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 1 "M_BaudRate";
+    .port_info 1 /INPUT 1 "CPOL";
+    .port_info 2 /INPUT 1 "CPHA";
+    .port_info 3 /INPUT 1 "idle";
+    .port_info 4 /OUTPUT 1 "SCK_out";
+    .port_info 5 /OUTPUT 1 "Shift_clk";
+    .port_info 6 /OUTPUT 1 "Sample_clk";
+v00000248e1c33310_0 .net "CPHA", 0 0, v00000248e1c623a0_0;  1 drivers
+v00000248e1c6c420_0 .net "CPOL", 0 0, v00000248e1c61ea0_0;  1 drivers
+v00000248e1c6c4c0_0 .net "M_BaudRate", 0 0, v00000248e1c62b20_0;  1 drivers
+v00000248e1c67fe0_0 .var "SCK_out", 0 0;
+v00000248e1c68080_0 .var "Sample_clk", 0 0;
+v00000248e1c68120_0 .var "Shift_clk", 0 0;
+v00000248e1c681c0_0 .net "idle", 0 0, v00000248e1c628a0_0;  1 drivers
+E_00000248e1c5afa0 .event anyedge, v00000248e1c681c0_0, v00000248e1c6c4c0_0, v00000248e1c6c420_0, v00000248e1c33310_0;
+S_00000248e1c68260 .scope module, "shift_inst1" "Shifter" 2 16, 4 3 0, S_00000248e1c6c100;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 1 "Sample_clk";
+    .port_info 1 /INPUT 1 "Shift_clk";
+    .port_info 2 /INPUT 1 "Data_in";
+    .port_info 3 /INPUT 1 "shifter_en";
+    .port_info 4 /INPUT 1 "SPDR_wr_en";
+    .port_info 5 /INPUT 1 "SPDR_rd_en";
+    .port_info 6 /INPUT 8 "SPDR_in";
+    .port_info 7 /OUTPUT 8 "SPDR_out";
+    .port_info 8 /OUTPUT 1 "Data_out";
+P_00000248e1c5b6a0 .param/l "DWIDTH" 0 4 3, +C4<00000000000000000000000000001000>;
+v00000248e1c32de0_0 .net "Data_in", 0 0, v00000248e1c62760_0;  1 drivers
+v00000248e1c32e80_0 .var "Data_out", 0 0;
+v00000248e1c62300_0 .net "SPDR_in", 7 0, v00000248e1c62c60_0;  1 drivers
+v00000248e1c621c0_0 .var "SPDR_out", 7 0;
+v00000248e1c61d60_0 .net "SPDR_rd_en", 0 0, L_00000248e1c6dd30;  alias, 1 drivers
+v00000248e1c62260_0 .net "SPDR_wr_en", 0 0, v00000248e1c62440_0;  1 drivers
+v00000248e1c62120_0 .net "Sample_clk", 0 0, v00000248e1c68080_0;  alias, 1 drivers
+v00000248e1c62bc0_0 .net "Shift_clk", 0 0, v00000248e1c68120_0;  alias, 1 drivers
+v00000248e1c61e00_0 .var "shifter_data", 7 0;
+v00000248e1c62080_0 .var "shifter_data_reg", 7 0;
+v00000248e1c624e0_0 .net "shifter_en", 0 0, L_00000248e1cc3038;  alias, 1 drivers
+E_00000248e1c5b5a0/0 .event anyedge, v00000248e1c62260_0, v00000248e1c61e00_0, v00000248e1c62080_0, v00000248e1c61d60_0;
+E_00000248e1c5b5a0/1 .event anyedge, v00000248e1c62300_0;
+E_00000248e1c5b5a0 .event/or E_00000248e1c5b5a0/0, E_00000248e1c5b5a0/1;
+E_00000248e1c5ae20 .event posedge, v00000248e1c68120_0;
+E_00000248e1c5b020 .event posedge, v00000248e1c68080_0;
+    .scope S_00000248e1c6c290;
+T_0 ;
+    %wait E_00000248e1c5afa0;
+    %load/vec4 v00000248e1c681c0_0;
+    %nor/r;
+    %load/vec4 v00000248e1c6c4c0_0;
+    %nor/r;
+    %and;
+    %store/vec4 v00000248e1c68120_0, 0, 1;
+    %load/vec4 v00000248e1c6c4c0_0;
+    %store/vec4 v00000248e1c68080_0, 0, 1;
+    %load/vec4 v00000248e1c6c420_0;
+    %load/vec4 v00000248e1c33310_0;
+    %concat/vec4; draw_concat_vec4
+    %dup/vec4;
+    %pushi/vec4 0, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.1, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.2, 6;
+    %dup/vec4;
+    %pushi/vec4 3, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.3, 6;
+    %jmp T_0.4;
+T_0.0 ;
+    %load/vec4 v00000248e1c6c4c0_0;
+    %store/vec4 v00000248e1c67fe0_0, 0, 1;
+    %jmp T_0.4;
+T_0.1 ;
+    %load/vec4 v00000248e1c681c0_0;
+    %nor/r;
+    %load/vec4 v00000248e1c6c4c0_0;
+    %nor/r;
+    %and;
+    %store/vec4 v00000248e1c67fe0_0, 0, 1;
+    %jmp T_0.4;
+T_0.2 ;
+    %load/vec4 v00000248e1c6c4c0_0;
+    %nor/r;
+    %store/vec4 v00000248e1c67fe0_0, 0, 1;
+    %jmp T_0.4;
+T_0.3 ;
+    %load/vec4 v00000248e1c681c0_0;
+    %load/vec4 v00000248e1c6c4c0_0;
+    %or;
+    %store/vec4 v00000248e1c67fe0_0, 0, 1;
+    %jmp T_0.4;
+T_0.4 ;
+    %pop/vec4 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_00000248e1c68260;
+T_1 ;
+    %wait E_00000248e1c5b020;
+    %load/vec4 v00000248e1c62080_0;
+    %parti/s 7, 0, 2;
+    %load/vec4 v00000248e1c32de0_0;
+    %concat/vec4; draw_concat_vec4
+    %assign/vec4 v00000248e1c62080_0, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_00000248e1c68260;
+T_2 ;
+    %wait E_00000248e1c5ae20;
+    %load/vec4 v00000248e1c624e0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.0, 8;
+    %load/vec4 v00000248e1c62080_0;
+    %parti/s 1, 7, 4;
+    %assign/vec4 v00000248e1c32e80_0, 0;
+T_2.0 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_00000248e1c68260;
+T_3 ;
+    %wait E_00000248e1c5b5a0;
+    %load/vec4 v00000248e1c62260_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.0, 8;
+    %load/vec4 v00000248e1c61e00_0;
+    %store/vec4 v00000248e1c621c0_0, 0, 8;
+    %load/vec4 v00000248e1c62080_0;
+    %store/vec4 v00000248e1c61e00_0, 0, 8;
+    %jmp T_3.1;
+T_3.0 ;
+    %load/vec4 v00000248e1c61d60_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.2, 8;
+    %load/vec4 v00000248e1c62300_0;
+    %store/vec4 v00000248e1c62080_0, 0, 8;
+    %load/vec4 v00000248e1c62300_0;
+    %store/vec4 v00000248e1c61e00_0, 0, 8;
+    %pushi/vec4 0, 255, 8;
+    %store/vec4 v00000248e1c621c0_0, 0, 8;
+    %jmp T_3.3;
+T_3.2 ;
+    %load/vec4 v00000248e1c62080_0;
+    %store/vec4 v00000248e1c61e00_0, 0, 8;
+    %pushi/vec4 0, 255, 8;
+    %store/vec4 v00000248e1c621c0_0, 0, 8;
+T_3.3 ;
+T_3.1 ;
+    %jmp T_3;
+    .thread T_3, $push;
+    .scope S_00000248e1c6c100;
+T_4 ;
+    %vpi_call 2 23 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 24 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000248e1c61ea0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000248e1c623a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000248e1c628a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000248e1c62b20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000248e1c62760_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000248e1c62440_0, 0, 1;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v00000248e1c62c60_0, 0, 8;
+    %delay 50, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000248e1c628a0_0, 0, 1;
+    %pushi/vec4 8, 0, 32;
+T_4.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_4.1, 5;
+    %jmp/1 T_4.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000248e1c62b20_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000248e1c62b20_0, 0, 1;
+    %delay 10, 0;
+    %jmp T_4.0;
+T_4.1 ;
+    %pop/vec4 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000248e1c62440_0, 0, 1;
+    %delay 50, 0;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "Shifter_TB.v";
+    "./../SCK_control/SCK_control.v";
+    "./Shifter.v";

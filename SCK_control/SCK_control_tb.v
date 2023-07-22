@@ -27,6 +27,26 @@ initial begin
       #1 M_BaudRate = 1;
       #1;
     end
+
+
+    //Mode 2 test
+    CPOL = 1; CPHA = 0; idle = 1; M_BaudRate = 0;
+    #5 idle = 0;
+    repeat(8) begin
+      M_BaudRate = 0; 
+      #1 M_BaudRate = 1;
+      #1;
+    end
+
+
+    //Mode 3 test
+    CPOL = 1; CPHA = 1; idle = 1; M_BaudRate = 0;
+    #5 idle = 0;
+    repeat(8) begin
+      M_BaudRate = 0; 
+      #1 M_BaudRate = 1;
+      #1;
+    end
 end
 
 endmodule

@@ -20,7 +20,7 @@ module BRG
         else if(clr)
              counter <= 0;
         else 
-          counter=counterNext;
+          counter <= counterNext;
   
     end
 

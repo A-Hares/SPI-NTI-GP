@@ -15,39 +15,30 @@ module Shifter #(parameter DWIDTH = 8)(
     reg [DWIDTH-1:0] shifter_data_reg;
     reg [DWIDTH-1:0] shifter_data;
 
-    always@(negedge rst) begin
+    always@(negedge rst, posedge Shift_clk) begin
         if(~rst) begin
-            Data_out = 0;
-            shifter_data = 0;
+            Data_out <= 0;
+        end
+        else if(shifter_en) begin
+            Data_out <= shifter_data[DWIDTH-1];  
         end
     end
+
     always@(posedge Sample_clk) begin
-        shifter_data_reg <= {shifter_data_reg[DWIDTH-2:0] ,Data_in};
+        shifter_data_reg <= {shifter_data[DWIDTH-2:0] ,Data_in};
     end
-
-
-    always@(posedge Shift_clk) begin
-        if(shifter_en) begin
-            Data_out <= shifter_data_reg[DWIDTH-1];  
-        end
-    end
-
 
     always@(*) begin
+        SPDR_out = 'b0 ;
         if (SPDR_wr_en) begin
-            SPDR_out = shifter_data ;
-            shifter_data = shifter_data_reg;
+            SPDR_out = shifter_data_reg ;
         end
         else if (SPDR_rd_en) begin
-            shifter_data_reg = SPDR_in;
             shifter_data = SPDR_in;
-            SPDR_out = 'bz ;
         end
-        else begin
+        else if (Sample_clk)
             shifter_data = shifter_data_reg;
-            SPDR_out = 'bz ;
-        end
-    end
 
+    end
 
 endmodule

@@ -45,18 +45,8 @@ module Master_Slave_controller(
             Update: next_state=Idle;
         endcase 
 
-    reg temp;
-    always @(posedge clk) begin
-        temp <= 0;
-        if ((current_state == Update)) begin
-            current_state <= next_state;
-        end 
-   //     else if (current_state == Idle)
-   //         if (temp == 0)
-   //             temp <= 1;
-          //  else 
-          //      current_state <= next_state;
-    end
+
+
 
     always @(*) begin
         idle = 0;

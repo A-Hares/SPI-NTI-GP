@@ -75,7 +75,7 @@ module SPI_TB;
             S_SPDR_From_user = 8'hDD;
         
         // Check the values  ( Test 2)
-            #(clockperiod*2**(3)*9); 
+            #(clockperiod*2**(3)*10); 
             expect_master(8'hDD);
             expect_slave(8'hBB);
         
@@ -84,7 +84,7 @@ module SPI_TB;
             S_SPDR_From_user = 8'hDA;
         
         // Check the values  ( Test 3)
-            #(clockperiod*2**(3)*9); 
+            #(clockperiod*2**(3)*10); 
             expect_master(8'hDA);
             expect_slave(8'hBC);
 
@@ -93,7 +93,7 @@ module SPI_TB;
             S_SPDR_From_user = 8'hAC;
         
         // Check the values  ( Test 4)
-            #(clockperiod*2**(3)*9); 
+            #(clockperiod*2**(3)*10); 
             expect_master(8'hAC);
             expect_slave(8'hFB);
 

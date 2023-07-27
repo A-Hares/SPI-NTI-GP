@@ -22,7 +22,7 @@ With regards to the architecture, we built our own architecture as shown in the 
 
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/fda28f6d-9520-489b-a241-48561e1f9ef7">
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/d805f039-1717-4691-912f-4407ac0f89b1">
 </p>
 
 ## Modes of Operation

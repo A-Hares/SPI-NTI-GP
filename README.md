@@ -6,23 +6,17 @@ It was developed by Motorola in the mid-1980s. It is a full duplex communication
 SPI has four main signals as shown in the figure below.
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/0fba77b5-3d36-4686-b72a-7b35bc5884a4"
-  style="width:500px">
-</p>
-
-<p align="center">
-<img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/fe805ef6-a95c-4037-807b-7d61ee90f069"
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/4b84c18f-af4a-4ea0-a190-486a602cc234"
   style="width:500px">
 </p>
 
 The master is responsible for generating the clock in which the whole system works on and it selects which slave he will communicate with.
 # Architecture
-With regards to the architecture, we built our own architecture as shown in the figure below.
+With regards to the architecture, we developed our own architecture as shown in the figure below.
 
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/d805f039-1717-4691-912f-4407ac0f89b1">
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/b81f4c74-d24a-46da-b75d-6e142b7bcb5b">
 </p>
 
 ## Modes of Operation
@@ -30,7 +24,7 @@ SPI can work with 4 modes of operations according to 2 signals which are CPOL an
 
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/b7f75680-9db0-4f02-8d0c-be2fd2601513"
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/7a6b574e-ca9a-48d5-ac09-2f2d2aec304d"
   style="width:600px">
 </p>
 
@@ -72,7 +66,7 @@ The shifter block is the block which takes the shift and sample clocks from the 
 
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/0eced881-bbb7-4ac8-bb79-dfe5aae984bf"
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/c2a43b8d-67f2-47cd-9d65-f170a7b90489"
   style="width:600px">
 </p>
 
@@ -87,25 +81,26 @@ A simple testbench was created consisting of a few directed tests where a value 
 
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/9ef36c32-8ff8-4aad-be68-c9f38aaaf6fd"
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/413f5395-f539-491a-9711-f3d51ac3a54e"
   style="width:900px">
 </p>
 
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/c7f00aa7-ed22-4cbd-b899-3ed4083b4a16"
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/3f094eea-7206-4b95-914f-4c25d26aa9f5"
   style="width:600px">
 </p>
 
 # Synthesis
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/ac321c30-1d18-4de1-89d3-92556b07d85f"
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/44b6ce2a-373b-4a4e-bbad-46b58fed3ed7"
   style="width:600px">
 </p>
+
 <p align="center">
 <img
-  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/598713b0-9a3b-42ba-a122-b4dc2ce429ea"
+  src="https://github.com/A-Hares/SPI-NTI-GP/assets/139650137/68a8b758-4301-46af-a492-51a7a0e8c307"
   style="width:600px">
 </p>
 

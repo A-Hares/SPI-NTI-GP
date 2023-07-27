@@ -1,6 +1,6 @@
 `default_nettype none
 `timescale 1ns/100ps
-`include "SPI_TOP.v"
+`include "../TOP/SPI_TOP.v"
 module SPI_TB;
     reg rst = 1, clk = 0, SS_master;
     wire SS, MISO, MOSI, SCK;

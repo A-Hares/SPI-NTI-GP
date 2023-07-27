@@ -1,5 +1,5 @@
 `default_nettype none
-`include "../BRG/BRG.v"
+`include "../BaudRateGenerator/BRG.v"
 //`include "../Master_controller/Master_controller.v"
 `include "../Master_Slave_controller\Master_Slave_controller.v"
 `include "../Master_Slave_controller\Master_slave_select.v"
